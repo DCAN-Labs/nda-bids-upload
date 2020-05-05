@@ -1,0 +1,11 @@
+site_name: DCAN Labs NDA BIDS Upload Tools
+theme: material
+plugins:
+  - search
+docs_dir: docs
+pages:
+  - Table of Contents: index.md
+  - 1. Data Prep: data.md
+  - 2. Records Prep: records.md
+  - 3. Upload: upload.md
+  - 4. Useful Links: useful.md
