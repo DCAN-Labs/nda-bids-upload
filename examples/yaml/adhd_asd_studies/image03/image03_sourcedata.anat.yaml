@@ -1,0 +1,6 @@
+scan_type: ""
+scan_object: "Live"
+image_file_format: "DICOM"
+image_modality: "MRI"
+transformation_performed: "Yes"
+transformation_type: "MRI series DICOM folder to .tar.gz archive"

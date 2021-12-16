@@ -1,0 +1,3 @@
+{
+    "sub-{SUBJECT}/ses-{SESSION}/anat/sub-{SUBJECT}_ses-{SESSION}_rec-normalized_T2w.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/anat/sub-{SUBJECT}_ses-{SESSION}_rec-normalized_T2w.tar.gz"
+}

@@ -1,0 +1,93 @@
+# scan_type == 'fMRI'
+experiment_id: ""
+
+# image_file_format != 'DICOM' && image_modality == 'MRI'
+scanner_manufacturer_pd: ""
+scanner_type_pd: ""
+magnetic_field_strength: ""
+mri_repetition_time_pd: ""
+mri_echo_time_pd: ""
+flip_angle: ""
+acquisition_matrix: ""
+mri_field_of_view_pd: ""
+patient_position: ""
+photomet_interpret: ""
+
+# image_file_format != 'DICOM'
+scanner_software_versions_pd: ""
+image_num_dimensions: ""
+image_extent1: ""
+image_unit1: ""
+image_resolution1: ""
+image_slice_thickness: ""
+image_orientation: ""
+
+# transformation_performed == 'Yes'
+transformation_type: ""
+
+# image_num_dimensions > 1
+image_extent2: ""
+image_unit2: ""
+image_resolution2: ""
+
+# image_num_dimensions > 2
+image_extent3: ""
+image_unit3: ""
+image_resolution3: ""
+
+# image_num_dimensions > 3
+image_extent4: ""
+extent4_type: ""
+image_unit4: ""
+image_resolution4: ""
+
+# image_num_dimensions > 4
+image_extent5: ""
+extent5_type: ""
+image_unit5: ""
+image_resolution5: ""
+
+# scan_type == 'fMRI' && image_file_format != 'DICOM'
+slice_timing: ""
+
+# scan_type == 'MR diffusion' || scan_type == 'multi-shell DTI' || scan_type == 'single-shell DTI'
+bvek_bval_files: ""
+
+# bvek_bval_files=='No'
+bvecfile: ""
+bvalfile: ""
+
+# image_modality=='microscopy' && image_num_dimensions==2
+emission_wavelingth: ""
+
+# in_stack==1
+objective_magnification: ""
+objective_na: ""
+immersion: ""
+exposure_time: ""
+
+# image_modality=='microscopy'
+camera_sn: ""
+cut_thickness: ""
+stain: ""
+pipeline_stage: ""
+deconvolved: ""
+decon_software: ""
+decon_method: ""
+psf_type: ""
+psf_file: ""
+decon_snr: ""
+decon_iterations: ""
+micro_temmplate_name: ""
+in_stack: ""
+decon_template_name: ""
+stack: ""
+
+# deconvolved == 1
+slices: ""
+slice_number: ""
+slice_thickness: ""
+excitation_wavelength: ""
+
+# psf_type=='E'
+type_of_microscopy: ""

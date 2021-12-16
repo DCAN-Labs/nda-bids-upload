@@ -1,0 +1,12 @@
+# scan_type == 'fMRI'
+experiment_id: ""
+
+# transformation_performed == 'Yes'
+transformation_type: ""
+
+# scan_type == 'MR diffusion' || scan_type == 'multi-shell DTI' || scan_type == 'single-shell DTI'
+bvek_bval_files: ""
+
+# bvek_bval_files=='No'
+bvecfile: ""
+bvalfile: ""

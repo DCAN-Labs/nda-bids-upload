@@ -1,0 +1,30 @@
+comments_misc: "" # Miscellaneous comments on study, interview, methodology relevant to this form data
+receive_coil: "" # Receive coil name
+transmit_coil: "" # Transmit coil name
+image_history: "" # Image history,f.e. transformations steps and other modifications.
+qc_outcome: "" # Provide information on the conclusion of the quality control methods regarding the quality of the image
+qc_description: "" # Provide information on the methods used to perform quality control checks on the image
+qc_fail_quest_reason: "" # Provide a reason that the image was determined to fail a quality control check or if the quality control check determined that the image was questionable
+decay_correction: "" # Decay correction
+frame_end_times: "" # Frame end times
+frame_end_unit: "" # Frame end unit
+frame_start_times: "" # Frame start times
+frame_start_unit: "" # Frame start unit
+pet_isotope: "" # PET isotope
+pet_tracer: "" # PET tracer
+time_diff_inject_to_image: "" # Time difference injection to image
+time_diff_units: "" # Time difference units
+pulse_seq: "" # Information regarding the pulse sequence
+slice_acquisition: "" # fMRI slice acquisition [1=ascending; 2=descending; 3=interleaved-even first; 4=interleaved-odd first]
+software_preproc: "" # Software used for preprocessing/transformation of images (include version number)
+study: "" # Study; The code for each individual study
+week: "" # Week in level/study
+experiment_description: "" # Description of experiment/sequence/event
+visit: "" # Visit name
+deviceserialnumber: "" # device serial number/ID
+procdate: "" # data processed date
+visnum: "" # Numeric Visit Number [-1.5 = Pre-Screening; -1 = Screening; 0 = Baseline; ## = Visit ## (from 1 to 10); Whole numbers = standard monthly visits; #.001 - #.009 = Unscheduled; #.1 = End of Phase 1; #.2 = End of Phase 2; #.3 = End of Phase 3; #.4 = End of Open Choice Phase; #.5 = End of Study; #.6 = Genetic Analysis; 1000=all visits]
+block_number: "" # Block Number
+level: "" # Treatment level
+stain_details: "" # Critical details of stainingi method, e.g. source and dilution of antibody for immunohistochemistry.
+year_mta: "" # Year in study

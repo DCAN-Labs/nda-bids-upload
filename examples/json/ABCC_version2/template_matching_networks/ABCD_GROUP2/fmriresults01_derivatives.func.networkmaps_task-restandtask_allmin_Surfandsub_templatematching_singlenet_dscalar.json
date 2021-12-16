@@ -1,0 +1,3 @@
+{
+    "ABCD_net_template_matching_task/merged_tasks_surfandsub_GRP2/sub-{SUBJECT}_ses-{SESSION}_merged_tasks_template_matched_Zscored_recolored.dscalar.nii": "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-concatrestandtask_bold_desc-filtered_timesseries_thresh-fd0p2mm_censor-allmin_Surfandsub_templatematching_singlenet_networkmaps.dscalar.nii"
+  }

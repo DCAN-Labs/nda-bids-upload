@@ -1,0 +1,17 @@
+{
+    "CHANGES": "CHANGES",
+    "README": "README",
+    "dataset_description.json": "dataset_description.json",
+    "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.json": "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.json",
+    "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.nii.gz": "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.nii.gz",
+    "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.bvec": "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.bvec",
+    "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.bvec": "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.bval",
+    "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.json": "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.json",
+    "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.nii.gz": "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.nii.gz",
+    "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.bvec": "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.bvec",
+    "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.bvec": "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.bval",
+    "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.json": "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.json",
+    "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.nii.gz": "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.nii.gz",
+    "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.bvec": "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.bvec",
+    "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.bvec": "sorted/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.bval"
+}

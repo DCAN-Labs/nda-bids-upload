@@ -1,0 +1,5 @@
+{
+    "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.json": "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.json",
+    "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.json": "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.json",
+    "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.json": "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.json"
+}

@@ -1,0 +1,8 @@
+{
+    "CHANGES": "CHANGES",
+    "README": "README",
+    "dataset_description.json": "dataset_description.json",
+    "HCP/derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-TrioSingleBand_bold_atlas-Markov2012FreeSurferSubcortical_timeseries.ptseries.nii": "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-TrioSingleBand_bold_atlas-Markov2012FreeSurferSubcortical_timeseries.ptseries.nii",
+    "HCP/derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-TrioSingleBand_motion_mask.mat": "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-TrioSingleBand_motion_mask.mat",
+    "dlabel/Markov2012FreeSurferSubcortical_dparc.dlabel.nii": "derivatives/abcd-hcp-pipeline/Markov2012FreeSurferSubcortical_dparc.dlabel.nii"
+}

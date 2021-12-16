@@ -1,0 +1,22 @@
+{
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-AP_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-AP_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-AP_run-01_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-AP_run-01_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-AP_run-02_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-AP_run-02_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-AP_run-03_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-AP_run-03_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-AP_run-04_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-AP_run-04_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-AP_run-05_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-AP_run-05_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-AP_run-06_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-AP_run-06_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-AP_run-07_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-AP_run-07_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-AP_run-08_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-AP_run-08_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-AP_run-09_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-AP_run-09_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-PA_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-PA_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-PA_run-01_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-PA_run-01_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-PA_run-02_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-PA_run-02_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-PA_run-03_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-PA_run-03_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-PA_run-04_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-PA_run-04_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-PA_run-05_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-PA_run-05_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-PA_run-06_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-PA_run-06_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-PA_run-07_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-PA_run-07_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-PA_run-08_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-PA_run-08_epi.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-multiband_dir-PA_run-09_epi.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-PrismaMultiBand_dir-PA_run-09_epi.tar.gz"
+}

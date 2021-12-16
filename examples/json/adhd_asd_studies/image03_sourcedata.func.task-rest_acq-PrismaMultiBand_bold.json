@@ -1,0 +1,11 @@
+{
+    "sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-multiband_run-01_bold.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-PrismaMultiBand_run-01_bold.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-multiband_run-02_bold.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-PrismaMultiBand_run-02_bold.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-multiband_run-03_bold.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-PrismaMultiBand_run-03_bold.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-multiband_run-04_bold.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-PrismaMultiBand_run-04_bold.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-multiband_run-05_bold.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-PrismaMultiBand_run-05_bold.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-multiband_run-06_bold.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-PrismaMultiBand_run-06_bold.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-multiband_run-07_bold.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-PrismaMultiBand_run-07_bold.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-multiband_run-08_bold.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-PrismaMultiBand_run-08_bold.tar.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-multiband_run-09_bold.tar.gz": "sourcedata/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_acq-PrismaMultiBand_run-09_bold.tar.gz"
+}

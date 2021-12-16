@@ -1,0 +1,6 @@
+{
+    "CHANGES": "CHANGES",
+    "README": "README",
+    "dataset_description.json": "dataset_description.json",
+    "HCP/derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/anat/sub-{SUBJECT}_ses-{SESSION}_atlas-MNI_space-fsLR32k_desc-smoothed_myelinmap.dscalar.nii": "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/anat/sub-{SUBJECT}_ses-{SESSION}_atlas-MNI_space-fsLR32k_desc-smoothed_myelinmap.dscalar.nii"
+}
