@@ -4,4 +4,10 @@ plugins:
   - search
 docs_dir: docs
 pages:
-  - Welcome!: index.md
+  - Table of contents: index.md
+  - 1. File naming conventions: conventions.md
+  - 2. Preparing the lookup CSV: lookup.md
+  - 3. Preparing NDA content YAML files: yamls.md
+  - 4. Preparing file-mapper JSON files: jsons.md
+  - 5. Using prepare and upload scripts: scripts.md
+  - 6. Appendix: appendix.md
