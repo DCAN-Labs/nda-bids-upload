@@ -25,7 +25,9 @@ DICOM files into a TAR.GZ archive in a rough approximation of a BIDS hierarchy.
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('-i', '--input-csv', metavar='CSV' , required=True,
-                    help='Input directory of only valid DICOM files')
+                    help='dicoms.csv file with paths to unique series folder per '
+                    'subject session in the first column followed by: '
+                     'nda_bids_subject, bids_session, bids_name, bids_modality')
 
 parser.add_argument('-o', '--output-dir', metavar='DIRECTORY', required=True,
                     help='Output directory to deposit TAR.GZ files in a '
