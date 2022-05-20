@@ -13,6 +13,7 @@ import os
 import subprocess
 import sys
 import yaml
+import pandas as pd
 
 from glob import glob
 
@@ -48,11 +49,19 @@ def generate_parser():
               '"sub-NDARABC123_ses-baseline.inputs.anat.T1w"')
     )
 
+    parser.add_argument(
+        '-l', '--lookup', dest='lookup_csv', type=str, required=True
+    )
+
+    parser.add_argument(
+        '-y', '--yaml-dir', dest='yaml_dir', type=str, required=True
+    )
+
     return parser
 
 
 # Sanity check against user inputs
-def records_sanity_check(input):
+def records_sanity_check(input, lookup_csv, yaml_dir):
 
     # check if input is a directory
     if not os.path.isdir(input):
@@ -62,8 +71,8 @@ def records_sanity_check(input):
         parent = os.path.abspath(os.path.realpath(input))
 
     dest_dir = os.path.dirname(parent)
-    lookup_csv = os.path.join(dest_dir, 'lookup.csv')
-    manifest_script = os.path.join(dest_dir, 'manifest-data', 'nda_manifests.py')
+    #lookup_csv = os.path.join(dest_dir, 'lookup.csv')
+    manifest_script = os.path.join(HERE, 'manifest-data', 'nda_manifests.py')
 
     # check if manifest_script exists
     if not os.path.isfile(manifest_script):
@@ -114,7 +123,7 @@ def records_sanity_check(input):
         sys.exit(8)
 
     # compare basename to available "content" YAML files
-    content_yamls = [content for content in glob( os.path.join(dest_dir, '*.yaml') ) 
+    content_yamls = [content for content in glob(os.path.join(yaml_dir, '*.yaml')) 
                      if os.path.basename(content) == basename + '.yaml' ]
 
     if not len(content_yamls) == 1:
@@ -152,13 +161,13 @@ def records_sanity_check(input):
         sys.exit(10)
     
 
-def cli(input):
+def cli(input, lookup_csv, yaml_dir):
 
     # setting easy use variables from argparse
     parent = os.path.abspath(os.path.realpath(input))
     dest_dir = os.path.dirname(parent)
-    manifest_script = os.path.join(dest_dir, 'manifest-data', 'nda_manifests.py')
-    lookup_csv = os.path.join(dest_dir, 'lookup.csv')
+    manifest_script = os.path.join(HERE, 'manifest-data', 'nda_manifests.py')
+    #lookup_csv = os.path.join(dest_dir, 'lookup.csv')
 
     # grab parent's basename
     basename = os.path.basename(parent)
@@ -187,7 +196,7 @@ def cli(input):
                     header = row
 
     # grabbing yaml
-    content_yamls = [content for content in glob( os.path.join(dest_dir, '*.yaml') ) 
+    content_yamls = [content for content in glob(os.path.join(yaml_dir, '*.yaml')) 
                      if os.path.basename(content) == basename + '.yaml' ]
 
     content_yaml = content_yamls[0]
@@ -197,8 +206,14 @@ def cli(input):
         content = yaml.load(f, Loader=yaml.CLoader)
 
     # load lookup CSV file
-    with open(lookup_csv,'r') as f:
-        lookup = [row for row in csv.DictReader(f)]
+    #with open(lookup_csv,'r') as f:
+    #    lookup = [row for row in csv.DictReader(f)]
+    lookup_df = pd.read_csv(lookup_csv)
+
+    # get subject list
+    with open(os.path.join(os.path.dirname(parent), 'subject_list.csv')) as f:
+        reader = csv.reader(f)
+        subject_list = list(reader)[1:]
 
     ### DO WORK ###
     # 1. GLOB all .../ndastructure_type.class.subset/sub-subject_ses-session.type.class.subset/ folders
@@ -218,9 +233,11 @@ def cli(input):
         bids_subject_session, datatype, dataclass, datasubset = upload_basename.split('.')
 
         record_found = False
-        for row in lookup:
-            if row['bids_subject_session'] == bids_subject_session:
-                lookup_record = row
+        for subject_session in subject_list:
+            if '_'.join(subject_session) == bids_subject_session:
+                row = lookup_df.loc[(lookup_df['bids_subject_id'] == subject_session[0]) & (lookup_df['bids_session_id'] == subject_session[1])]
+                assert len(row) == 1
+                lookup_record = row.to_dict(orient='records')[0]
                 record_found = True
                 # if '_ses-' in bids_subject_session:
                 #     # regular expression magic
@@ -254,7 +271,7 @@ def cli(input):
             new_record['image_collection_desc'] = '.'.join([datatype, dataclass, datasubset])
 
         for column in lookup_record:
-            if column != 'bids_subject_session':
+            if column != 'bids_subject_id' and column != 'bids_session_id':
                 new_record[column] = lookup_record[column]
 
         records.append(new_record)
@@ -275,7 +292,11 @@ def cli(input):
     max_batch_size = 500 # @TODO this needs to become an integer input defaulted to 500
     total = len(records)
     count = math.ceil(float(total) / max_batch_size )
-    batch_size = math.ceil(float(total) / count )
+    if count == 0:
+        print('WARNING: There are no records of datatype '.format(basename))
+        batch_size = 0
+    else:
+        batch_size = math.ceil(float(total) / count )
 
     low = 0
     subprocess.call(('echo `date` Creating batch files'), shell=True)
@@ -312,6 +333,6 @@ if __name__ == "__main__":
     parser = generate_parser()
     args = parser.parse_args()
 
-    records_sanity_check(args.parent)
-    cli(args.parent)
+    records_sanity_check(args.parent, args.lookup_csv, args.yaml_dir)
+    cli(args.parent, args.lookup_csv, args.yaml_dir)
     sys.exit(0)
