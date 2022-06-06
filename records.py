@@ -214,6 +214,13 @@ def cli(input, lookup_csv, yaml_dir):
     with open(os.path.join(os.path.dirname(parent), 'subject_list.csv')) as f:
         reader = csv.reader(f)
         subject_list = list(reader)[1:]
+        for subject_session in subject_list:
+            row = lookup_df.loc[(lookup_df['bids_subject_id'] == subject_session[0]) & (lookup_df['bids_session_id'] == subject_session[1])]
+            if len(row) == 1:
+                continue
+            else:
+                print('WARNING: {} {} not found in {}'.format(subject_session[0], subject_session[1], lookup_csv))
+                subject_list.remove(subject_session)
 
     ### DO WORK ###
     # 1. GLOB all .../ndastructure_type.class.subset/sub-subject_ses-session.type.class.subset/ folders
@@ -236,11 +243,15 @@ def cli(input, lookup_csv, yaml_dir):
         for subject_session in subject_list:
             if '_'.join(subject_session) == bids_subject_session:
                 row = lookup_df.loc[(lookup_df['bids_subject_id'] == subject_session[0]) & (lookup_df['bids_session_id'] == subject_session[1])]
-                assert len(row) == 1
+                if len(row) == 1:
+                    continue
+                else:
+                    print('WARNING: {} {} not found in {}'.format(subject_session[0], subject_session[1], lookup_csv))
+                    subject_list.remove(subject_session)
+
                 lookup_record = row.to_dict(orient='records')[0]
                 record_found = True
-                # if '_ses-' in bids_subject_session:
-                #     # regular expression magic
+
                 break
 
         if not record_found:

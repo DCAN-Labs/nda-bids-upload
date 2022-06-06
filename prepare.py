@@ -11,6 +11,7 @@ import os
 import stat
 import subprocess
 import sys
+import pandas as pd
 
 HERE = os.path.dirname(os.path.realpath(__file__))
 
@@ -69,10 +70,23 @@ def input_check():
         sys.exit(1)
 
     dest_dir = args.dest.rstrip('/')
+
+    lookup_csv = os.path.join(dest_dir, "lookup.csv")
+    if os.path.exists(lookup_csv):
+        lookup_df = pd.read_csv(lookup_csv)
+    else:
+        print('ERROR: lookup.csv file should exist here: {}'.format(dest_dir))
     
     with open(args.subject_list) as f:
         reader = csv.reader(f)
         subject_list = list(reader)[1:]
+        for subject_session in subject_list:
+            row = lookup_df.loc[(lookup_df['bids_subject_id'] == subject_session[0]) & (lookup_df['bids_session_id'] == subject_session[1])]
+            if len(row) == 1:
+                continue
+            else:
+                print('WARNING: {} {} not found in {}'.format(subject_session[0], subject_session[1], lookup_csv))
+                subject_list.remove(subject_session)
 
     wd = os.path.dirname(args.subject_list)
     
@@ -131,12 +145,13 @@ def filemap_and_recordsprep(dest_dir, wd, subject_list, datatypes, mapper_script
 
     if skip:
         print('Skipping file-mapping')
+        lookup_csv = os.path.join(dest_dir, "lookup.csv")
     else:
         lookup_csv = os.path.join(dest_dir, "lookup.csv")
         child_check = False
 
-        with open(lookup_csv, 'r') as f:
-            lookup = [row for row in csv.DictReader(f)]
+        #with open(lookup_csv, 'r') as f:
+        #    lookup = [row for row in csv.DictReader(f)]
 
         # go through all of the file_mapper json's using the current subject session pairing
         # assumes every JSON in the dest_dir is a file mapper JSON

@@ -152,7 +152,7 @@ def nda_vt():
                   ' -b')
 
             subprocess.call(('echo ' + cmd), shell=True)
-            subprocess.call(cmd, shell = True)
+            subprocess.call(cmd, shell = True) # TODO Check for success
             upload_file.write( records_batch + '\n')
     
     upload_file.close()
