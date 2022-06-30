@@ -243,11 +243,10 @@ def cli(input, lookup_csv, yaml_dir):
         for subject_session in subject_list:
             if '_'.join(subject_session) == bids_subject_session:
                 row = lookup_df.loc[(lookup_df['bids_subject_id'] == subject_session[0]) & (lookup_df['bids_session_id'] == subject_session[1])]
-                if len(row) == 1:
-                    continue
-                else:
+                if len(row) != 1:
                     print('WARNING: {} {} not found in {}'.format(subject_session[0], subject_session[1], lookup_csv))
                     subject_list.remove(subject_session)
+                    continue
 
                 lookup_record = row.to_dict(orient='records')[0]
                 record_found = True
