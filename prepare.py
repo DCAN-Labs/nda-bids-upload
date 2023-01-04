@@ -32,18 +32,24 @@ def generate_parser():
     # "-t" and "--target" options are retained here for backward compatibility
     parser.add_argument(
         '-s', '--source', '-t', '--target', dest='source_dir', metavar='SOURCE', type=str, required=True,
-        help=('Path to the directory from which files are being sourced.')
+        help=('The directory under which all data desired for upload is found. '
+              ' This is usually the output of a pipeline like Dcm2Bids or '
+              ' abcd-hcp-pipeline. It is the directory your file mapper JSONs '
+              ' will be mapping from.')
     )
 
     parser.add_argument(
         '-d', '--destination', dest='dest', metavar='DESTINATION', type=str, required=True,
-        help=('Path to the directory holding all of the file mapper json files, the lookup.csv '
-              'and the subdirectory that contains the NDA python manifest script.')
+        help=('Path to the output directory where all data is staged for uploading. '
+              ' This directory should also contain the directory of file mapper json '
+              ' files and the lookup.csv. '
+              'See the ndabids.readthedocs.io for further clarification')
     )
 
     parser.add_argument(
         '--subject-list', dest='subject_list', type=str, required=True,
-        help=('Path to a csv containing a list of subjects and sessions to upload.')
+        help=('Path to a csv containing a list of subjects and session pairs to upload '
+              ' with column labels "bids_subject_id" and "bids_session_id", respectively')
     )
 
     parser.add_argument(
