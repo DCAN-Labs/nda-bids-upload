@@ -5,9 +5,10 @@ plugins:
 docs_dir: docs
 nav:
   - Table of contents: index.md
-  - 1. File naming conventions: conventions.md
+  - 1. Dependencies: dependencies.md
   - 2. Preparing the lookup CSV: lookup.md
-  - 3. Preparing NDA content YAML files: yamls.md
-  - 4. Preparing file-mapper JSON files: jsons.md
-  - 5. Using prepare and upload scripts: scripts.md
-  - 6. Appendix: appendix.md
+  - 3. Naming conventions of Content YAML and file-mapper JSON files: conventions.md
+  - 4. Content YAML files: yamls.md
+  - 5. file-mapper JSON files: jsons.md
+  - 6. Using prepare and upload scripts: scripts.md
+  - 7. Appendix: appendix.md
