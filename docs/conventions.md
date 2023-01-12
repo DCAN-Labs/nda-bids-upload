@@ -23,24 +23,22 @@ necessity `image03_sourcedata.anat.T1w.yaml` MUST also exist.
 <img width="200" alt="Screenshot 2022-11-01 114831" src="https://user-images.githubusercontent.com/102316699/199289968-deb0ef10-5264-4578-bee0-69e41a768069.png">
 
 When creating JSON and YAML files there is an expected naming
-convention. The naming convention has four "sections", **<span style="color:red">A</span>_<span style="color:blue">X</span>.<span style="color:yellow">Y</span>.<span style="color:purple">Z</span>** with
+convention. The naming convention has four "sections", **<span style="color:red">A</span>_<span style="color:blue">X</span>.<span style="color:gold">Y</span>.<span style="color:purple">Z</span>** with
 **`.yaml`** or **`.json`** on the end depending on the type of file that is
 being created. 
-
-<span style="color:blue">some *blue* text</span>
 
 *For all sections*
 
 There are two restrictions on naming conventions.
 
-1.  Periods \"**.**\" should only be used in the separations between sections **X**, **Y**, and **Z**.
+1.  Periods \"**.**\" should only be used in the separations between sections **<span style="color:blue">X</span>**, **<span style="color:gold">Y</span>**, and **<span style="color:purple">Z</span>**.
 
-2.  An underscore \"**\_**\" MUST be used in the separation between sections **A** and **X**. Underscores are allowed in the naming of section **Z**.
+2.  An underscore \"**\_**\" MUST be used in the separation between sections **<span style="color:red">A</span>** and **<span style="color:blue">X</span>**. Underscores are allowed in the naming of section **<span style="color:purple">Z</span>**.
 
 A valid content YAML and file mapper JSON pair would be named as such:\
-**`fmriresults01_derivatives.anat.T1w_MNI.json`**
+**<span style="color:red">fmriresults01</span>_<span style="color:blue">derivatives</span>.<span style="color:gold">anat</span>.<span style="color:purple">T1w_MNI</span>.json**
 
-**`fmriresults01_derivatives.anat.T1w_MNI.yaml`**
+**<span style="color:red">fmriresults01</span>_<span style="color:blue">derivatives</span>.<span style="color:gold">anat</span>.<span style="color:purple">T1w_MNI</span>.yaml**
 
 *Descriptions of the naming conventions are given below:*
 
@@ -48,33 +46,33 @@ A valid content YAML and file mapper JSON pair would be named as such:\
 
 Section A must be:
 
--   **`fmriresults01`**
+-   **<span style="color:red">fmriresults01</span>**
 
--   **`image03`**
+-   **<span style="color:red">image03</span>**
 
--   **`imagingcollection01`**
+-   **<span style="color:red">imagingcollection01</span>**
 
-The **`fmriresults01`** data structure should be used for any processed
-MRI or fMRI data with the NDA. The **`imagingcollection01`** data
+The **<span style="color:red">fmriresults01</span>** data structure should be used for any processed
+MRI or fMRI data with the NDA. The **<span style="color:red">imagingcollection01</span>** data
 structure is being phased out by the NDA for non-HCP and non-ABCD
-studies. **`imagingcollection01`** is therefore deprecated within these
-tools. For non-HCP and non-ABCD studies use **`fmriresults01`** for all
+studies. **<span style="color:red">imagingcollection01</span>** is therefore deprecated within these
+tools. For non-HCP and non-ABCD studies use **<span style="color:red">fmriresults01</span>** for all
 non-source data (ex: inputs, sourcedata, and derivatives). For all
-sources, use the **`image03`** data structure (ex: DICOMs).
+sources, use the **<span style="color:red">image03</span>** data structure (ex: DICOMs).
 
 <img width="100" alt="Screenshot 2022-11-01 115328" src="https://user-images.githubusercontent.com/102316699/199291057-d4a5dbfd-5cbe-4a40-bf6c-db1911eaa885.png">
 
 Section X can be:
 
--   **`inputs`**
+-   **<span style="color:blue">inputs</span>**
 
--   **`derivatives`**
+-   **<span style="color:blue">derivatives</span>**
 
--   **`sourcedata`**
+-   **<span style="color:blue">sourcedata</span>**
 
-For section X there are currently these options. **`inputs`** are the
-unprocessed imaging data in BIDS format. **`derivatives`** are the results
-of processing the BIDS inputs. **`sourcedata`** are things like task
+For section X there are currently these options. **<span style="color:blue">inputs</span>** are the
+unprocessed imaging data in BIDS format. **<span style="color:blue">derivatives</span>** are the results
+of processing the BIDS inputs. **<span style="color:blue">sourcedata</span>** are things like task
 timing files (EventRelatedInformation) and other raw/as-acquired data
 (eg DICOMs).
 
@@ -82,17 +80,17 @@ timing files (EventRelatedInformation) and other raw/as-acquired data
 
 Section Y usually uses BIDS standard data naming, but is also allowed to deviate:
 
--   **`anat`**
+-   **<span style="color:gold">anat</span>**
 
--   **`dwi`**
+-   **<span style="color:gold">dwi</span>**
 
--   **`fmap`**
+-   **<span style="color:gold">fmap</span>**
 
--   **`func`**
+-   **<span style="color:gold">func</span>**
 
--   **`executivesummary`**
+-   **<span style="color:gold">executivesummary</span>**
 
--   **`(similar entries)`**
+-   **<span style="color:gold">(similar entries)</span>**
 
 There are BIDS naming conventions for some of these entities. These are
 maintained within the BIDS specification and can be found
