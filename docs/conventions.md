@@ -1,52 +1,40 @@
-# 1. File naming conventions
+# 1. Installation/Dependencies
 
-YAML and JSON files are always paired. If a YAML file is created then a JSON must be made with the same file name.
+Set up the environment you will be uploading from with the following:
 
-## File naming Format
+Note: this could be your computer, a [virtual environment](https://docs.python.org/3.6/tutorial/venv.html),
+or a conda environment
 
-**`A_X.Y.Z`**
+-   Python 3.6 
 
-When creating JSON and YAML files there is an expected naming convention.  The naming convention has four "sections", `A_X.Y.Z` with `.yaml` or `.json` on the end depending on the type of file that is being created.
+-   Python [YAML dictionary](https://pypi.org/project/PyYAML/) package 
 
-## For all sections
+-   Install [NDA tools](https://github.com/NDAR/nda-tools) 
 
-There are two restrictions on naming conventions.
+-   Clone the [file-mapper GitHub repository](https://github.com/DCAN-Labs/file-mapper) and ensure that file-mapper-script.py is executable
 
-1. Periods `"."` should only be used in the separations between sections `X`, `Y` and `Z`.
-2. Underscores `"_"` should only be used in EITHER the separation between sections `A` and `X` OR in the naming of section `Z`.
+-   Clone the [NDA manifest-data GitHub repository](https://github.com/NDAR/manifest-data) and ensure that nda_manifest.py is executable 
 
-## Section `A`
+**Creating NDA Upload Directory**
 
-Must be:
+1.  Create a working directory for your submissions
 
-* `fmriresults01`
-* `image03`
+2.  Within that directory include the following:
 
-The `fmriresults01` data structure should be used for any processed MRI or fMRI data with the NDA.  The `imagingcollection01` data structure is being phased out by the NDA for non-HCP and non-ABCD studies.  `imagingcollection01` is therefore deprecated within these tools. For non-HCP and non-ABCD studies use `fmriresults01` for all none source data. For all source use the `image03` data structure.
+    a.  a datatypes.txt file including a list of all of the NDA datatypes you plan to upload
 
-## Section `X`
+    b.  a subject_list.csv file containing a list of the subjects and their sessions you plan to upload with the column headers bids_subject_id and bids_session_id, respectively.
 
-Can be:
+    c.  scripts set up to run prepare.py and uploads.py
+    
+3.  Assure that your version of the nda-bids-upload repository includes
+    a JSON and YAML pair for the datatypes you are uploading within its
+    examples directory.
 
-* `inputs`
-* `derivatives`
-* `sourcedata`
+    a.  If these do not exist, see <ins>2.2 Preparing Content YAML and File Mapper JSON files</ins> for instructions on how to create them.
 
-For section `X` there are currently these options.  `inputs` are the as-acquired data in BIDS format.  `derivatives` are the results of processing inputs.  `sourcedata` are things like task timing files and other raw/as-acquired data.
+4.  Include the lookup.csv for the data you are uploading inside your working directory. 
 
-## Section `Y`
+    a.  If these do not exist, see <ins>2.1 Preparing a lookup CSV file</ins>
 
-Usually BIDS standard data naming, but is allowed to deviate:
-
-* `anat`
-* `dwi`
-* `fmap`
-* `func`
-* `executivesummary`
-* (similar entries)
-
-There are BIDS naming conventions for some of these entities.  Other naming conventions can be created as necessary.
-
-## Section `Z`
-
-An open-ended and user-defined data subset type.  It is recommended to use something concise enough to convey the contents of what you've prepared.
+INSERT TREE OF WORKING DIR
