@@ -3,7 +3,7 @@ theme: material
 plugins:
   - search
 docs_dir: docs
-pages:
+nav:
   - Table of contents: index.md
   - 1. File naming conventions: conventions.md
   - 2. Preparing the lookup CSV: lookup.md
