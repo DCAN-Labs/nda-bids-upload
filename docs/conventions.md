@@ -1,5 +1,7 @@
 # 3. Preparing Content YAML and File Mapper JSON files
 
+<span style="color:blue">some *blue* text</span>.
+
 The content YAMLs and file mapper JSONs are used in the prepare.py
 script. The YAMLs are used to create the NDA records for upload, which
 contain all possible information that one can query about data. The
