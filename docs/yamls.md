@@ -1,4 +1,4 @@
-# 5. Content YAML files
+# 4. Content YAML files
 
 The content YAML files are used together with the lookup CSV to
 construct the NDA's required data structure for an upload. The fields
