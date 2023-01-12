@@ -1,51 +1,38 @@
-# 3. Preparing NDA content YAML files
+# 5. Content YAML files
 
-The content YAMLs are used in the prepare.py script.  They are used to create the appropriate NDA data structures for a valid upload.
+The content YAML files are used together with the lookup CSV to
+construct the NDA's required data structure for an upload. The fields
+within these data structures are described in the NDA's data
+dictionaries linked below.
 
-## YAML files
+-   [image03](https://nda.nih.gov/data_structure.html?short_name=image03)
 
-The content YAML files are used together with the lookup CSV to construct the `fmriresults01`, `image03`, or `imagingcollection01` CSV files.  There are three categories that these fields fall into: **Required**, **Conditional**, and **Recommended**.  Required fields **MUST** be filled with NDA-valid information.  Conditional fields **MUST** be filled if their condition is met.  Recommended fields do not need to be filled, but should be filled if information is available.
+-   [fmriresults01](https://nda.nih.gov/data_structure.html?short_name=fmriresults01)
 
-There are three YAML files provided.
+-   [imagingcollection01](https://nda.nih.gov/data_structure.html?short_name=imagingcollection01)
 
-* `fmriresults01_required.yaml`
-* `fmriresults01_complete.yaml`
-* `fmriresults01_full_NDA.yaml`
+There are three categories that each field within a data structure fall
+into: **Required**, **Conditional**, and **Recommended**. **Required**
+fields MUST be filled with NDA-valid information. **Conditional** fields
+MUST be filled if their condition is met. **Recommended** fields do not
+need to be filled, but should be filled if information is available. The
+"VALUE RANGE" column gives allowable values for each field
 
-The pair of **complete** and **required** yaml files are used to provide relavent information to **prepare.py**.  These files **MUST** stay in the `content` directory under `nda-bids-upload-prepare`.
+For example, according to the **`fmriresults01`** data dictionary
+"scan_type" is a required element and "experiment_id" is a conditional
+element. If "scan_type == fMRI" is specified then "experiment_id" is
+required.
 
-## [fmriresults01](https://nda.nih.gov/data_structure.html?short_name=fmriresults01)
+For further guidance on the values of each element use the previously
+created content yamls for the ABCC and ADHD collections as a reference.
 
-There are values found on the NDA site that are not listed below. That is because `records.py` uses the provided files to generate the values stored in the fields `manifest` and `image_description`.
+Note: Regarding the NDA required fields for fmriresults01: 
+**`manifest`**, **`image_description`**, **`derived_files`**,
+**`qc_fail_quest_reason`**, and **`qc_outcome`**:
 
-### Required
+1.  **`manifest`**, **`image_description`**, and **`derived_files`** should
+    not be provided because ***`prepare.py`*** generates them correctly
+    already.
 
-* `file_source`
-* `pipeline`
-* `pipeline_script`
-* `pipeline_tools`
-* `pipeline_type`
-* `pipeline_version`
-* `qc_fail_quest_reason`
-* `qc_outcome`
-* `scan_type`
-
-### Conditional
-
-* `derived_files`
-
-The field `derived_files` is conditional on whether or not the field `manifest` is filled.  Since `records.py` generates and fills the `manifest` field, `derived_files` is unnecessary.
-
-### Recommended
-
-* `origin_dataset_id`
-* `experiment_id`
-* `inputs`
-* `img03_id`
-* `job_name`
-* `proc_types`
-* `metric_files`
-* `img03_id2`
-* `file_source2`
-* `session_det`
-* `image_history`
+2.  **`qc_fail_quest_reason`** and **`qc_outcome`** should be provided as
+    **`questionable`** if QC was not performed.
