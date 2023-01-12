@@ -1,20 +1,44 @@
-# 4. Preparing file-mapper JSON files
+# 6. file-mapper JSON files
 
-The file-mapper JSONs are used in the prepare.py script.  They are used They are used together with the lookup CSV to map the data into BIDS standard format.
+The [file
+mapper](https://github.com/DCAN-Labs/file-mapper) JSON
+files are used together with the lookup CSV and the target directory
+passed to the ***`prepare.py`*** script to create NDA formatted
+directories.  A collection of file mapper JSON file examples are
+available [within the nda-bids-upload GitHub
+repository](https://github.com/DCAN-Labs/nda-bids-upload/tree/master/examples/json).
 
-## Example 1: file mapper JSON
+*File mapper JSON Example 1*
 
-```ascii
+```
 {
     "CHANGES": "CHANGES",
     "README": "README",
     "dataset_description.json": "dataset_description.json",
-    "HCP/derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/[ses-{SESSION}/]anat/sub-{SUBJECT}[_ses-{SESSION}]_space-ACPC_dseg.nii.gz": "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/[ses-{SESSION}/]anat/sub-{SUBJECT}[_ses-{SESSION}]_space-ACPC_dseg.nii.gz"
+    
+    "HCP/derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/anat/sub-{SUBJECT}_ses-{SESSION}_space-ACPC_dseg.nii.gz": 
+    "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/anat/sub-{SUBJECT}_ses-{SESSION}_space-ACPC_dseg.nii.gz"
 }
 ```
 
-The square brackets around `[_ses-{SESSION}/]` and all other session related section implies these blocks are optional, but it should be used if you have multiple sessions for single subjects within a dataset.
+Critically, each JSON file can have more than one file specified.
+Furthermore, files need not be MRI images. Files could even be a zip
+file.
 
-These JSON files are organized in a two part system `files_location: files_destination`. The `files_location` is the path under the target directory passed to prepare.py. The `files_destination` is the path under the child directory as dictated by the BIDS format. The child directory will be explained in section X and a link to the BIDS format can be found in the Appendix.
+These JSON files are organized in a two part *key* and *value* system:
 
-As seen in Example 1, the subject and session lables are filled in with variables. This so the all of the subject (and sessions) found in the lookup CSV can have these files applied to them.
+-   **`files_source: files_destination`**
+
+The **`files_source`** is the **\*relative\*** path under the target
+directory passed to prepare.py. The **`files_destination`** is the
+**\*relative\*** path under the child directory as dictated by the BIDS
+format. The relative path is relative to the source path you provide
+when running prepare.py. Do not use **\*full\*** paths because the code
+will not accept forward slashes as the first character for either the
+**`files_source`** or the **`files_destination`**.
+
+As seen in *File mapper JSON Example 1*, the subject and session labels
+are filled in by the placeholder variables `{SUBJECT}` and `{SESSION}`. This
+is so all of the subjects (and sessions) found in the lookup CSV can
+have the same file mapper JSON files applied to them. All subjects and
+sessions will be symlinked using your provided JSON files.
