@@ -31,9 +31,9 @@ being created. 
 
 There are two restrictions on naming conventions.
 
-1.  Periods \"**.**\" should only be used in the separations between sections **<span style="color:blue">X</span>**, **<span style="color:gold">Y</span>**, and **<span style="color:purple">Z</span>**.
+1.  Periods "**.**" should only be used in the separations between sections **<span style="color:blue">X</span>**, **<span style="color:gold">Y</span>**, and **<span style="color:purple">Z</span>**.
 
-2.  An underscore \"**\_**\" MUST be used in the separation between sections **<span style="color:red">A</span>** and **<span style="color:blue">X</span>**. Underscores are allowed in the naming of section **<span style="color:purple">Z</span>**.
+2.  An underscore "**_**" MUST be used in the separation between sections **<span style="color:red">A</span>** and **<span style="color:blue">X</span>**. Underscores are allowed in the naming of section **<span style="color:purple">Z</span>**.
 
 A valid content YAML and file mapper JSON pair would be named as such:\
 **<span style="color:red">fmriresults01</span>_<span style="color:blue">derivatives</span>.<span style="color:gold">anat</span>.<span style="color:purple">T1w_MNI</span>.json**
