@@ -1,4 +1,4 @@
-# 6. file-mapper JSON files
+# 5. file-mapper JSON files
 
 The [file
 mapper](https://github.com/DCAN-Labs/file-mapper) JSON
