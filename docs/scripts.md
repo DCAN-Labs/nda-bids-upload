@@ -40,39 +40,39 @@ of the relevant files listed in the file mapper JSON.
 
 You will notice a common naming convention for the "child" directories
 as well. At the child directory level the naming convention has four
-"sections" which follow the model "**S.X.Y.Z**". The same conventions as
+"sections" which follow the model "**<span style="color:green">S</span>.<span style="color:blue">X</span>.<span style="color:gold">Y</span>.<span style="color:purple">Z</span>**". The same conventions as
 above are followed, with one important exception. The first component 
-\"**S.**\" replaces \"**A\_**\". The "**S.**" represents the
+"**<span style="color:green">S</span>.**" replaces "**<span style="color:red">A</span>_**". The "**<span style="color:green">S</span>.**" represents the
 **bids_subject_session** in the lookup.csv file. Below are three
 examples to highlight different variations. 
 
 **Example 1: Prepared Parent and Child Directories**
 
-***`fmriresults01_inputs.anat.T1w`***
+***<span style="color:red">fmriresults</span>_<span style="color:blue">inputs</span>.<span style="color:gold">anat</span>.<span style="color:purple">T1w</span>***
 
-Below a parent directory named **`fmriresults01_inputs.anat.T1w`** the
+Below a parent directory named **<span style="color:red">fmriresults</span>_<span style="color:blue">inputs</span>.<span style="color:gold">anat</span>.<span style="color:purple">T1w</span>** the
 scripts will expect any amount of BIDS-formatted standard folders, one
 for each individual subject or session record you want to upload. Read
 on for how the child directories should be formatted.
 
-**`fmriresults01_inputs.anat.T1w`**/\
-└── **`sub-NDARABC123_ses-baseline.inputs.anat.T1w`**
+**<span style="color:red">fmriresults</span>_<span style="color:blue">inputs</span>.<span style="color:gold">anat</span>.<span style="color:purple">T1w</span>**/<br>
+└── **<span style="color:green">sub-NDARABC123_ses-baseline</span>.<span style="color:blue">inputs</span>.<span style="color:gold">anat</span>.<span style="color:purple">T1w</span>**
 
 You can see the different sections put together here:
 
-1.  **`A` is `fmriresults01`**
+1.  **<span style="color:red">A</span> is <span style="color:red">fmriresults</span>**
 
-2.  **`X` is `inputs`**
+2.  **<span style="color:blue">X</span> is <span style="color:blue">inputs</span>**
 
-3.  **`Y` is `anat`**
+3.  **<span style="color:gold">Y</span> is <span style="color:gold">anat</span>**
 
-4.  **`Z` is `T1w`**
+4.  **<span style="color:purple">Z</span> is <span style="color:purple">T1w</span>**
 
-5.  **`S` is `sub-NDARABC123_ses-baseline`, (the session is being labeled)**
+5.  **<span style="color:green">S</span> is <span style="color:green">sub-NDARABC123_ses-baseline</span>, (the session is being labeled)**
 
--   **`<subjectlabel>` is `NDARABC123`**
+-   **`<subjectlabel>` is <span style="color:green">NDARABC123</span>**
 
--   **`<sessionlabel>` is `baseline`**
+-   **`<sessionlabel>` is <span style="color:green">baseline</span>**
 
 Within all child directories you will find a directory hierarchy created
 by your file mapper JSONs underneath.
@@ -84,15 +84,15 @@ session-specific derivative folders.
 
 For example, starting from the prepared child directory:
 
-**sub-NDARABC123_ses-baseline.input.anat.T1w/sub-NDARABC123/ses-baseline/anat**
+**<span style="color:green">sub-NDARABC123_ses-baseline</span>.<span style="color:blue">input</span>.<span style="color:gold">anat</span>.<span style="color:purple">T1w</span>/sub-NDARABC123/ses-baseline/anat**
 
 The final directory structure from the parent directory down should
 follow like the examples below.
 
 **Example 2: BIDS Anatomical Inputs**
 
-**`fmriresults01_inputs.anat.T1w`**/<br>
-└── **`sub-NDARABC123_ses-baseline.inputs.anat.T1w`**<br>
+**<span style="color:red">fmriresults</span>_<span style="color:blue">inputs</span>.<span style="color:gold">anat</span>.<span style="color:purple">T1w</span>**/<br>
+└── **<span style="color:green">sub-NDARABC123_ses-baseline</span>.<span style="color:blue">inputs</span>.<span style="color:gold">anat</span>.<span style="color:purple">T1w</span>**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── `CHANGES`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── `dataset_description.json`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── `README`<br>
@@ -104,8 +104,8 @@ follow like the examples below.
 
 **Example 3: BIDS Derivatives**
 
-**`fmriresults01_derivatives.func.runs_task-rest`**/<br>
-└── **`sub-NDARABC123_ses-baseline.derivatives.func.runs_task-rest`**<br>
+**<span style="color:red">fmriresults</span>_<span style="color:blue">derivatives</span>.<span style="color:gold">func</span>.<span style="color:purple">runs_task-rest</span>**/<br>
+└── **<span style="color:green">sub-NDARABC123_ses-baseline</span>.<span style="color:blue">derivatives</span>.<span style="color:gold">func</span>.<span style="color:purple">runs_task-rest</span>**<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── `derivatives`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── `abcd-hcp-pipeline`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── `sub-NDARABC123`<br>
@@ -135,10 +135,10 @@ is 3165, ASD-BIDS is 1955, ADHD-BIDS years 1-8 is 2857, and ADHD-BIDS
 years 9-12 is 3222.
 
 **`--source`** (or **`-s`**): The source flag expects the complete path to
-the **A_X.Y.Z** subfolder within the **destination** directory from
+the **<span style="color:red">A</span>_<span style="color:blue">X</span>.<span style="color:gold">Y</span>.<span style="color:purple">Z</span>** subfolder within the **destination** directory from
 **prepare.py**. This should be the exact same path as the **`--source`**
 specified for **prepare.py**. The expected basename of the provided path
-MUST have the structure **A_X.Y.Z**. The script will fail if this is not
+MUST have the structure **<span style="color:red">A</span>_<span style="color:blue">X</span>.<span style="color:gold">Y</span>.<span style="color:purple">Z</span>**. The script will fail if this is not
 the case.
 
 **`--ndavtcmd`** (or **`-vt`**): The ndavtcmd flag expects the absolute
