@@ -91,30 +91,30 @@ follow like the examples below.
 
 **Example 2: BIDS Anatomical Inputs**
 
-**`fmriresults01_inputs.anat.T1w`**/\
-└── **`sub-NDARABC123_ses-baseline.inputs.anat.T1w`**\
-  ├── `CHANGES`\
-  ├── `dataset_description.json`\
-  ├── `README`\
-  └── `sub-NDARABC123`\
-    └── `ses-baseline`\
-      └── `anat`\
-        ├── `sub-NDARABC123_ses-baseline_T1w.json`\
-        └── `sub-NDARABC123_ses-baseline_T1w.nii.gz`
+**`fmriresults01_inputs.anat.T1w`**/<br>
+└── **`sub-NDARABC123_ses-baseline.inputs.anat.T1w`**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── `CHANGES`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── `dataset_description.json`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── `README`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── `sub-NDARABC123`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── `ses-baseline`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── `anat`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── `sub-NDARABC123_ses-baseline_T1w.json`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── `sub-NDARABC123_ses-baseline_T1w.nii.gz`
 
 **Example 3: BIDS Derivatives**
 
-**`fmriresults01_derivatives.func.runs_task-rest`**/\
-└── **`sub-NDARABC123_ses-baseline.derivatives.func.runs_task-rest`**\
-  └── `derivatives`\
-    └── `abcd-hcp-pipeline`\
-      └── `sub-NDARABC123`\
-        └── `ses-baseline`\
-          └── `func`\
-            ├── `sub-NDARABC123_ses-baseline_task-rest_run-1_bold_timeseries.dtseries.nii`\
-            ├── `sub-NDARABC123_ses-baseline_task-rest_run-1_motion.tsv`\
-            ├── `sub-NDARABC123_ses-baseline_task-rest_run-2_bold_timeseries.dtseries.nii`\
-            └── `sub-NDARABC123_ses-baseline_task-rest_run-2_motion.tsv`
+**`fmriresults01_derivatives.func.runs_task-rest`**/<br>
+└── **`sub-NDARABC123_ses-baseline.derivatives.func.runs_task-rest`**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── `derivatives`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── `abcd-hcp-pipeline`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── `sub-NDARABC123`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── `ses-baseline`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── `func`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── `sub-NDARABC123_ses-baseline_task-rest_run-1_bold_timeseries.dtseries.nii`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── `sub-NDARABC123_ses-baseline_task-rest_run-1_motion.tsv`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── `sub-NDARABC123_ses-baseline_task-rest_run-2_bold_timeseries.dtseries.nii`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── `sub-NDARABC123_ses-baseline_task-rest_run-2_motion.tsv`
 
 If your directories are not formatted correctly please check your file
 mapper JSON files for proper formatting.
