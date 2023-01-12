@@ -1,4 +1,4 @@
-# 3. Preparing a lookup.csv file
+# 2. Preparing a lookup.csv file
 
 Create a lookup.csv to be used in prepare.py. The prepare.py script uses
 the lookup.csv file to determine which subjects and sessions will be
