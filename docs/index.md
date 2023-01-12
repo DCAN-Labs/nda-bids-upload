@@ -24,18 +24,16 @@ The major steps include:
 
 ## Table of Contents
 
-1.  Installation/Dependencies 
+1.  Installation/Dependencies/Creating an NDA Upload Directory
 
-2.  Creating an NDA Upload Directory
+2.  Preparing Lookup CSV
 
-3.  Preparing Lookup CSV
+3.  Naming conventions of Content YAML and file-mapper JSON files
 
-4.  Naming conventions of Content YAML and file-mapper JSON files
+4.  Content YAML files
 
-5.  Content YAML files
+5.  file-mapper JSON files
 
-6.  file-mapper JSON files
+6.  Using Prepare and Upload Scripts
 
-7.  Using Prepare and Upload Scripts
-
-8.  Appendix/Glossary
+7.  Appendix/Glossary
