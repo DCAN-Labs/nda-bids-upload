@@ -1,4 +1,4 @@
-# 7. Using `prepare.py` and `upload.py` Scripts
+# 6. Using `prepare.py` and `upload.py` Scripts
 
 ## Using `prepare.py`
 
