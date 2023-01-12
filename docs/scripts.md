@@ -1,149 +1,170 @@
-# 5. Using prepare and upload scripts
-
-## `Setting up your system`
-
-When using `prepare.py`,`records.py` and `upload.py` there is a list of things that must exist before the use of the scripts.
-
-1. Python 3.6 needs to be wherever the scripts are being run.  If it is not Python 3.6 you will get an error form the NDA's scripts.  You can either use a system Python 3.6 or a virtual environment with Python 3.6.  ([setting up a virual environment documentation](https://docs.python.org/3.6/tutorial/venv.html)).
-
-2. The Python YAML dictionary must be installed into which ever environment you are runing these scrripts on. ([installing YAML dictionary](https://pypi.org/project/PyYAML/))
-
-3. Install NDA tools into your Python 3.6 environment ([link to the GitHub for nda-tools](https://github.com/NDAR/nda-tools)).  To install `nda-tools`, use the command:
-
-    ```shell
-    python3.6 -m pip install nda-tools --user
-    ```
-
-4. Create an upload directory and move all appropriate JSON files and lookup CSV into it.
-
-5. Create a pair of directories under the upload directory. They need to be named `manifest` and `file_mapper`
-
-6. Download the DCAN Labs's `file_mapper_script.py` script.  Clone it into the `file_mapper` directory.  Once it is cloned permissions to the script need to be changed to `755 (-rwxr-xr-x)`.  A link to the DCAN Lab's Gitlab for the file_mapper_script and how to clone it can be found in the Appendix
-
-7. Download the NDA's `nda_manifest.py` script.  Clone it into the `manifest` directory.  Once it is cloned permissions to the script need to be changed to `755 (-rwxr-xr-x)`.  A link to the NDA's Github for the nda_manifest script and how to clone it can be found in the Appendix
+# 7. Using `prepare.py` and `upload.py` Scripts
 
 ## Using `prepare.py`
 
-When using `prepare.py` there are two mandatory flags:
+The prepare.py script runs filemapper on the data to be uploaded as
+specified in the lookup.csv contained in the upload folder (eg
+destination folder for prepare.py). It then runs records.py on all of
+the file-mapped folders to create manifest JSONs and records.csv, which
+contains a list of full paths to all files to upload. 
 
-`--destination` (or `-d`): The upload directory mentioned above in set four. This directory is going to be where all of the data will be organized under after data_perpare.py has finished.
+When using
+[prepare.py](https://github.com/DCAN-Labs/nda-bids-upload/blob/master/prepare.py)
+there are four mandatory flags:
 
-`--target` (or `-t`): The directory under which all data the is wanted for upload can be found. This is often a self made directory or the output of a pipeline.
+**`--source`** (or **`-s`**): The directory under which all data desired
+for upload is found. This is usually the output of a pipeline like
+Dcm2Bids or abcd-hcp-pipeline. It is the directory your file mapper
+JSONs will be mapping from.
 
-Once this script has been run you will want to check the results. In the upload directory you will find a parent/child directory setup. You should have a parent directory for each of the JSON files. They should have the same name as their corosponding file. Underneither you should find a README, CHANGES, dataset_description.json and child direcotry for ever subject [and session] that was found to have the relevent files listed in the corispoding JSON. If there are no child files under the parent directory then the script couldn't find any of the relavent files listed in the JSON.
+**`--destination`** (or **`-d`**): The upload directory you began in step
+two. This directory is going to be where all of the data will be
+organized after prepare.py has finished.
 
-The child directory should be labeled thusly.
+**`--subject-list`**: A list of subjects and session pairs within a .csv
+file with column labels "bids_subject_id" and "bids_session_id,"
+respectively.
 
-**`S.X.Y.Z`**
+**`--datatypes`**: A list of NDA data types within a .txt file you plan
+to upload.
 
-There is also an expected naming convention for the "child" directories.  At the child directory level the naming convention has four "sections", `S.X.Y.Z`.  Three of those are the exact same as above, `"X.Y.Z"`.  The first is `"S."` instead of `"A_"` (the `"."` instead of `"_"` is intentional).
+Once this script has been run you will want to spot check the results.
+In the upload directory, you will find a parent/child directory setup.
+You should have a parent directory for each of the JSON/YAML file pairs.
+They should have the same name as their corresponding JSON/YAML files
+without the extensions. Underneath you should find a child directory for
+every subject (and session if used) that was found to have the relevant
+files listed in the corresponding file mapper JSON. If there are no
+child files under the parent directory then the script couldn't find any
+of the relevant files listed in the file mapper JSON.
 
-### Section `S`
+You will notice a common naming convention for the "child" directories
+as well. At the child directory level the naming convention has four
+"sections" which follow the model "**S.X.Y.Z**". The same conventions as
+above are followed, with one important exception. The first component 
+\"**S.**\" replaces \"**A\_**\". The "**S.**" represents the
+**bids_subject_session** in the lookup.csv file. Below are three
+examples to highlight different variations. 
 
-Defined like this:
+**Example 1: Prepared Parent and Child Directories**
 
-**`sub-<subjectlabel>[_ses-<sessionlabel>]`**
+***`fmriresults01_inputs.anat.T1w`***
 
-Where:
+Below a parent directory named **`fmriresults01_inputs.anat.T1w`** the
+scripts will expect any amount of BIDS-formatted standard folders, one
+for each individual subject or session record you want to upload. Read
+on for how the child directories should be formatted.
 
-* `<subjectlabel>` needs to be replaced by your actual BIDS-standard subject label
-* `<sessionlabel>` needs to be replaced by your actual BIDS-standard session label
-* The square brackets around `[_ses-<sessionlabel>]` implies this block is optional, but it should be used if you have multiple sessions for single subjects within a dataset.
-
-Remember: BIDS labels (`<subjectlabel>` and `<sessionlabel>`) are **ONLY** alphanumeric.  Spaces, underscores, hyphens, and any other seperators are **NOT ALLOWED**.
-
-## Example 1: Prepared Parent and Child Directories
-
-### `fmriresults01_inputs.anat.T1w`
-
-Below a parent directory named `fmriresults01_inputs.anat.T1w` the scripts will expect any amount of BIDS-formatted standard folders, one for each individual subject or session record you want to upload.  Read on for how the child directories should be formatted.
-
-```ascii
-fmriresults01_inputs.anat.T1w/
-└── sub-NDARABC123_ses-baseline.inputs.anat.T1w
-```
+**`fmriresults01_inputs.anat.T1w`**/\
+└── **`sub-NDARABC123_ses-baseline.inputs.anat.T1w`**
 
 You can see the different sections put together here:
 
-1. `A` is `fmriresults01`
-1. `X` is `inputs`
-1. `Y` is `anat`
-1. `Z` is `T1w`
-1. `S` is `sub-NDARABC123_ses-baseline`, (the session is being labeled)
-    * `<subjectlabel>` is `NDARABC123`
-    * `<sessionlabel>` is `baseline`
+1.  **`A` is `fmriresults01`**
 
-### `sub-NDARABC123_ses-baseline.input.anat.T1w`
+2.  **`X` is `inputs`**
 
-Within all child directories there **MUST** be a valid BIDS standard directory hierarchy underneath that follows a standard BIDS folder layout **from the top folder**.
+3.  **`Y` is `anat`**
 
-For inputs, use the Official BIDS Validator to check for validity.  For derivatives, remember that there should be `derivatives/<pipeline>` prior to your subject-specific and session-specific derivative folders.
+4.  **`Z` is `T1w`**
 
-For example, starting with the prepared child directory:
+5.  **`S` is `sub-NDARABC123_ses-baseline`, (the session is being labeled)**
 
-### `sub-NDARABC123_ses-baseline.input.anat.T1w/sub-NDARABC123/ses-baseline/anat/...`
+-   **`<subjectlabel>` is `NDARABC123`**
 
-The final directory structure from the parent directory down should follow like the examples below.
+-   **`<sessionlabel>` is `baseline`**
 
-## Example 2: BIDS Anatomical Inputs
+Within all child directories you will find a directory hierarchy created
+by your file mapper JSONs underneath.
 
-```ascii
-fmriresults01_inputs.anat.T1w/
-└── sub-NDARABC123_ses-baseline.inputs.anat.T1w
-    ├── CHANGES
-    ├── dataset_description.json
-    ├── README
-    └── sub-NDARABC123
-        └── ses-baseline
-            └── anat
-                ├── sub-NDARABC123_ses-baseline_T1w.json
-                └── sub-NDARABC123_ses-baseline_T1w.nii.gz
-```
+For BIDS inputs, use the official BIDS Validator to check for validity.
+For BIDS derivatives, remember that there should be
+**`derivatives/<pipeline>`** prior to your subject-specific and
+session-specific derivative folders.
 
-## Example 3: BIDS Derivatives
+For example, starting from the prepared child directory:
 
-```ascii
-fmriresults01_derivatives.func.runs_task-rest/
-└── sub-NDARABC123_ses-baseline.derivatives.func.runs_task-rest
-    └── derivatives
-        └── abcd-hcp-pipeline
-            └── sub-NDARABC123
-                └── ses-baseline
-                    └── func
-                        ├── sub-NDARABC123_ses-baseline_task-rest_run-1_bold_timeseries.dtseries.nii
-                        ├── sub-NDARABC123_ses-baseline_task-rest_run-1_motion.tsv
-                        ├── sub-NDARABC123_ses-baseline_task-rest_run-2_bold_timeseries.dtseries.nii
-                        └── sub-NDARABC123_ses-baseline_task-rest_run-2_motion.tsv
-```
+**sub-NDARABC123_ses-baseline.input.anat.T1w/sub-NDARABC123/ses-baseline/anat**
 
-If you directoried do not look to be formatted correctly please check your JSON files for proper formatting.
+The final directory structure from the parent directory down should
+follow like the examples below.
 
-## Using `records.py`
+**Example 2: BIDS Anatomical Inputs**
 
-When using `records.py` there are three mandatory flags:
+**`fmriresults01_inputs.anat.T1w`**/\
+└── **`sub-NDARABC123_ses-baseline.inputs.anat.T1w`**\
+    ├── `CHANGES`\
+    ├── `dataset_description.json`\
+    ├── `README`\
+    └── `sub-NDARABC123`\
+        └── `ses-baseline`\
+            └── `anat`\
+                ├── `sub-NDARABC123_ses-baseline_T1w.json`\
+                └── `sub-NDARABC123_ses-baseline_T1w.nii.gz`
 
-`--source` (or `-s`): The upload directory mentioned above in set four.
+**Example 3: BIDS Derivatives**
 
-`--lookup` (or `-l`): The lookup flag expects the complete path to the lookup.csv that was covered in part 2 of this README.
+**`fmriresults01_derivatives.func.runs_task-rest`**/\
+└── **`sub-NDARABC123_ses-baseline.derivatives.func.runs_task-rest`**\
+    └── `derivatives`\
+       └── `abcd-hcp-pipeline`\
+           └── `sub-NDARABC123`\
+               └── `ses-baseline`\
+                   └── `func`\
+                       ├──
+`sub-NDARABC123_ses-baseline_task-rest_run-1_bold_timeseries.dtseries.nii`\
+                       ├──
+`sub-NDARABC123_ses-baseline_task-rest_run-1_motion.tsv`\
+                       ├──
+`sub-NDARABC123_ses-baseline_task-rest_run-2_bold_timeseries.dtseries.nii`\
+                       └──
+`sub-NDARABC123_ses-baseline_task-rest_run-2_motion.tsv`
 
-`--manifest` (or `-m`): The manifest flag expects the complete path to the `nda_manifest.py` script mentioned at the head of this section of the README.
+If your directories are not formatted correctly please check your file
+mapper JSON files for proper formatting.
 
 ## Using `upload.py`
 
-When using `upload.py` there are three mandatory flags:
+The upload.py script uses records.csv (generated by prepare.py above) to
+split the files to be uploaded into batches of 500. For each batch, the
+script loops through each of the file paths to generate and run the
+necessary upload command using NDA-tools.
 
-`--collection` (or `-c`): The collection flag needs an **NDA Collection ID**.
+When using upload.py there are three mandatory arguments:
 
-`--source` (or `-s`): The source flag expects the complete path to the parent directory from part 1 of this README.  The expected basename of the provided path should have the structure `A_X.Y.Z`.  The script will fail if this is not the case.
+**`--collection`** (or **`-c`**): The collection flag needs an **NDA
+Collection ID**. You can find collection IDs in the [NDA
+repository](https://nda.nih.gov/). For instance, the ABCC
+is 3165, ASD-BIDS is 1955, ADHD-BIDS years 1-8 is 2857, and ADHD-BIDS
+years 9-12 is 3222.
 
-`--ndavtcmd` (or `-vt`): The ndavtcmd flag expects the direct path to the `vtcmd` script.
+**`--source`** (or **`-s`**): The source flag expects the complete path to
+the **A_X.Y.Z** subfolder within the **destination** directory from
+**prepare.py**. This should be the exact same path as the **`--source`**
+specified for **prepare.py**. The expected basename of the provided path
+MUST have the structure **A_X.Y.Z**. The script will fail if this is not
+the case.
 
-Examples:
+**`--ndavtcmd`** (or **`-vt`**): The ndavtcmd flag expects the absolute
+path to the vtcmd script. 
 
-```bash
-# Maybe it is in your local Python installation binaries folder
-~/.local/bin/vtcmd
+> *Example \--ndavtcmd:*
+>
+> *\# if it is in your local Python installation binaries folder*\
+> `~/.local/bin/vtcmd`
 
-# Or maybe a Python virtualenv you made in the "..." folder
-.../virtualenv/bin/vtcmd
-```
+The first time this script is run, you will be prompted for your NIMH
+username and password, which is then stored in
+**\~/.NDATools/settings.cfg.** Find the upload logs, validation results,
+and submission package here: **\~/NDA/nda-tools/vtcmd**
+
+**When to contact the NDA Helpdesk**
+
+If all goes well in ***upload.py***, you should contact the NDA helpdesk
+as soon as possible after uploading and indicate that you are ready for
+the NDA's Quality Assurance (QA) checks on your collection's data.
+
+If all does not go well, make sure to read your NDA-specific upload log
+files, double-check the standard output streams (stdout) of your upload
+script runs, and double-check the submission status within your NDA
+collection's website tab on **Submissions**.
