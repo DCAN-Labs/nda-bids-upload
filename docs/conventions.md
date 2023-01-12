@@ -1,7 +1,5 @@
 # 3. Preparing Content YAML and File Mapper JSON files
 
-<span style="color:blue">some *blue* text</span>.
-
 The content YAMLs and file mapper JSONs are used in the prepare.py
 script. The YAMLs are used to create the NDA records for upload, which
 contain all possible information that one can query about data. The
@@ -25,9 +23,11 @@ necessity `image03_sourcedata.anat.T1w.yaml` MUST also exist.
 <img width="200" alt="Screenshot 2022-11-01 114831" src="https://user-images.githubusercontent.com/102316699/199289968-deb0ef10-5264-4578-bee0-69e41a768069.png">
 
 When creating JSON and YAML files there is an expected naming
-convention. The naming convention has four "sections", **`A_X.Y.Z`** with
+convention. The naming convention has four "sections", **<span style="color:red">A</span>_<span style="color:blue">X</span>.<span style="color:yellow">Y</span>.<span style="color:purple">Z</span>** with
 **`.yaml`** or **`.json`** on the end depending on the type of file that is
 being created. 
+
+<span style="color:blue">some *blue* text</span>
 
 *For all sections*
 
