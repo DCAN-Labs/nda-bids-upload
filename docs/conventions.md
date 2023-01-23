@@ -20,7 +20,8 @@ necessity `image03_sourcedata.anat.T1w.yaml` MUST also exist.
 
 *File naming Format*
 
-<img width="200" alt="Screenshot 2022-11-01 114831" src="https://user-images.githubusercontent.com/102316699/199289968-deb0ef10-5264-4578-bee0-69e41a768069.png">
+**<span style="color:red">A</span>_<span style="color:blue">X</span>.<span style="color:gold">Y</span>.<span style="color:purple">Z</span>.json**<br>
+**<span style="color:red">A</span>_<span style="color:blue">X</span>.<span style="color:gold">Y</span>.<span style="color:purple">Z</span>.yaml**
 
 When creating JSON and YAML files there is an expected naming
 convention. The naming convention has four "sections", **<span style="color:red">A</span>_<span style="color:blue">X</span>.<span style="color:gold">Y</span>.<span style="color:purple">Z</span>** with
@@ -42,7 +43,7 @@ A valid content YAML and file mapper JSON pair would be named as such:\
 
 *Descriptions of the naming conventions are given below:*
 
-<img width="100" alt="Screenshot 2022-11-01 115133" src="https://user-images.githubusercontent.com/102316699/199290610-e3af1791-5c2d-44b3-a07a-de8a28e97420.png">
+### <span style="color:red">Section A</span>
 
 Section A must be:
 
@@ -60,7 +61,7 @@ tools. For non-HCP and non-ABCD studies use **<span style="color:red">fmriresult
 non-source data (ex: inputs, sourcedata, and derivatives). For all
 sources, use the **<span style="color:red">image03</span>** data structure (ex: DICOMs).
 
-<img width="100" alt="Screenshot 2022-11-01 115328" src="https://user-images.githubusercontent.com/102316699/199291057-d4a5dbfd-5cbe-4a40-bf6c-db1911eaa885.png">
+### <span style="color:blue">Section X</span>
 
 Section X can be:
 
@@ -76,7 +77,7 @@ of processing the BIDS inputs. **<span style="color:blue">sourcedata</span>** ar
 timing files (EventRelatedInformation) and other raw/as-acquired data
 (eg DICOMs).
 
-<img width="100" alt="Screenshot 2022-11-01 115450" src="https://user-images.githubusercontent.com/102316699/199291436-69d8bc56-be46-483a-a8a7-a4630ff02ac2.png">
+### <span style="color:gold">Section Y</span>
 
 Section Y usually uses BIDS standard data naming, but is also allowed to deviate:
 
@@ -97,7 +98,7 @@ maintained within the BIDS specification and can be found
 [here](https://bids-specification.readthedocs.io/en/stable/99-appendices/04-entity-table.html#magnetic-resonance-imaging).
 Other naming conventions can be created as necessary.
 
-<img width="100" alt="Screenshot 2022-11-01 115721" src="https://user-images.githubusercontent.com/102316699/199291771-164f0cec-dd9a-42fe-8366-27d775a04350.png">
+### <span style="color:purple">Section Z</span>
 
 Section Z is an open-ended and user-defined data subset type. It is recommended to
 use something concise enough to convey the contents of what you've
