@@ -11,6 +11,7 @@ import os
 import stat
 import subprocess
 import sys
+import pandas as pd
 
 HERE = os.path.dirname(os.path.realpath(__file__))
 
@@ -31,13 +32,30 @@ def generate_parser():
     # "-t" and "--target" options are retained here for backward compatibility
     parser.add_argument(
         '-s', '--source', '-t', '--target', dest='source_dir', metavar='SOURCE', type=str, required=True,
-        help=('Path to the directory from which files are being sourced.')
+        help=('The directory under which all data desired for upload is found. '
+              ' This is usually the output of a pipeline like Dcm2Bids or '
+              ' abcd-hcp-pipeline. It is the directory your file mapper JSONs '
+              ' will be mapping from.')
     )
 
     parser.add_argument(
         '-d', '--destination', dest='dest', metavar='DESTINATION', type=str, required=True,
-        help=('Path to the directory holding all of the file mapper json files, the lookup.csv '
-              'and the subdirectory that contains the NDA python manifest script.')
+        help=('Path to the output directory where all data is staged for uploading. '
+              ' This directory should also contain the directory of file mapper json '
+              ' files and the lookup.csv. '
+              'See the ndabids.readthedocs.io for further clarification')
+    )
+
+    parser.add_argument(
+        '--subject-list', dest='subject_list', type=str, required=True,
+        help=('Path to a csv containing a list of subjects and session pairs to upload '
+              ' with column labels "bids_subject_id" and "bids_session_id", respectively')
+    )
+
+    parser.add_argument(
+        '--datatypes', dest='datatypes', type=str, required=True,
+        help=('Path to a txt file contain a list of the datatypes that should be '
+              'uploaded for each subject.')
     )
 
     parser.add_argument(
@@ -58,8 +76,31 @@ def input_check():
         sys.exit(1)
 
     dest_dir = args.dest.rstrip('/')
-    manifest_dir = os.path.join(dest_dir, "manifest-data")
-    file_mapper = os.path.join(dest_dir, "file-mapper")
+
+    lookup_csv = os.path.join(dest_dir, "lookup.csv")
+    if os.path.exists(lookup_csv):
+        lookup_df = pd.read_csv(lookup_csv)
+    else:
+        print('ERROR: lookup.csv file should exist here: {}'.format(dest_dir))
+    
+    with open(args.subject_list) as f:
+        reader = csv.reader(f)
+        subject_list = list(reader)[1:]
+        for subject_session in subject_list:
+            row = lookup_df.loc[(lookup_df['bids_subject_id'] == subject_session[0]) & (lookup_df['bids_session_id'] == subject_session[1])]
+            if len(row) == 1:
+                continue
+            else:
+                print('WARNING: {} {} not found in {}'.format(subject_session[0], subject_session[1], lookup_csv))
+                subject_list.remove(subject_session)
+
+    wd = os.path.dirname(args.subject_list)
+    
+    with open(args.datatypes) as f:
+        datatypes = [datatype.rstrip() for datatype in f.readlines()]
+
+    manifest_dir = os.path.join(HERE, "manifest-data")
+    file_mapper = os.path.join(HERE, "file-mapper")
 
     if not os.path.isdir(manifest_dir):
         print("Missing manifest directory " + manifest_dir + ", Exiting. Clone from https://github.com/NDAR/manifest-data")
@@ -103,135 +144,110 @@ def input_check():
 
     source_dir = args.source_dir.rstrip('/')
 
-    return dest_dir, mapper_script, manifest_script, source_dir, args.skip
+    return dest_dir, wd, subject_list, datatypes, mapper_script, manifest_script, source_dir, args.skip
 
 
-def filemap_and_recordsprep(dest_dir, mapper_script, source_dir, skip):
+def filemap_and_recordsprep(dest_dir, wd, subject_list, datatypes, mapper_script, source_dir, skip):
 
     if skip:
         print('Skipping file-mapping')
+        lookup_csv = os.path.join(dest_dir, "lookup.csv")
     else:
         lookup_csv = os.path.join(dest_dir, "lookup.csv")
         child_check = False
 
-        with open(lookup_csv, 'r') as f:
-            lookup = [row for row in csv.DictReader(f)]
+        #with open(lookup_csv, 'r') as f:
+        #    lookup = [row for row in csv.DictReader(f)]
 
         # go through all of the file_mapper json's using the current subject session pairing
         # assumes every JSON in the dest_dir is a file mapper JSON
-        for filename in os.listdir(dest_dir):
-            if filename.endswith('.json'):
+        for datatype in datatypes:
+            parent_name = datatype
+            parent_dir = os.path.join(wd, datatype)
+            parent_head, parent_tail = parent_name.split('_', 1) # e.g. fmriresults01 inputs.anat.T1w
 
-                # creating the parent and child directory for the files to get mapped to
-                parent_name = filename.rstrip('.json')
-                parent_dir = os.path.join(dest_dir, parent_name)
-                parent_head, parent_tail = parent_name.split('_', 1)
+            print('Starting ' + parent_name + ' file-mapping')
 
-                print('Starting ' + parent_name + ' file-mapping')
+            for i in subject_list:
+                bids_subject = i[0]
+                subject = bids_subject.lstrip("sub-")
+                bids_session = i[1]
+                session = bids_session.lstrip("ses-")
 
-                for i in range(len(lookup)):
-                    sub_ses = lookup[i]['bids_subject_session']
+                child_dir = os.path.join(parent_dir, bids_subject + '_' + bids_session + '.' + parent_tail)
 
-                    if ('_' in sub_ses) and ('_ses-' not in sub_ses):
-                        print('Improperly formatted "bids_subject_session": ' + sub_ses + '. Requires "_ses-" between subject and session. Exiting.')
-                        sys.exit(7)
+                if os.path.isdir(parent_dir):
+                    try:
+                        os.mkdir(child_dir)
+                    except FileExistsError:
+                        print(child_dir + " exists")
 
-                    char_count = sub_ses.count('_')
-                    if char_count > 1:
-                        print('Improperly formatted "bids_subject_session": ' + sub_ses + '. Requires no more than one "_" (underscore). Exiting.')
-                        sys.exit(8)
+                if not os.path.isdir(child_dir):
+                    try:
+                        os.makedirs(child_dir)
+                    except FileExistsError:
+                        print(child_dir + " exists")
 
-                    if "_ses-" in sub_ses:
-                        bids_subject, bids_session = sub_ses.split("_")
-                        subject = bids_subject.lstrip("sub-")
-                        session = bids_session.lstrip("ses-")
-                        subject_and_session_flag = True
-                    else:
-                        bids_subject = sub_ses
-                        subject = bids_subject.lstrip("sub-")
-                        subject_and_session_flag = False
+                # calling the file mapper script.
+                print('Preparing ' + bids_subject)
 
-                    if subject_and_session_flag:
-                        child_dir = os.path.join(parent_dir, bids_subject + '_' + bids_session + '.' + parent_tail)
-                    else:
-                        child_dir = os.path.join(parent_dir, bids_subject + '.' + parent_tail)
+                # creating the string to be used in the template field of the file mapper.
+                template = "'SUBJECT=" + str(subject) + ",SESSION=" + str(session) + "'"
 
-                    if os.path.isdir(parent_dir):
-                        try:
-                            os.mkdir(child_dir)
-                        except FileExistsError:
-                            print(child_dir + " exists")
+                FM_cmd = (
+                    'python3 ' + mapper_script +
+                    ' -s ' +
+                    ' -a symlink ' +
+                    ' -sp ' + source_dir +
+                    ' -dp ' + child_dir +
+                    ' -t ' + template +
+                    ' ' + os.path.join(dest_dir, 'filemapper_jsons', parent_name + '.json')
+                    )
+                #print(FM_cmd)
+                subprocess.call(FM_cmd, shell=True)
 
-                    if not os.path.isdir(child_dir):
-                        try:
-                            os.makedirs(child_dir)
-                        except FileExistsError:
-                            print(child_dir + " exists")
+                # if FM_cmd failed
+                if not os.path.isdir(child_dir):
+                    # go to the next iteration of this loop and skip below lines
+                    continue
 
-                    # calling the file mapper script.
-                    print('Preparing ' + bids_subject)
+                child_check = False
+                for child_content in os.listdir(child_dir):
+                    content_path = os.path.join(child_dir, child_content)
+                    if os.path.isdir(content_path):
+                        child_check = True
+                        break
 
-                    # creating the string to be used in the template field of the file mapper.
-                    if subject_and_session_flag:
-                        template = "'SUBJECT=" + str(subject) + ",SESSION=" + str(session) + "'"
-                    else:
-                        template = "'SUBJECT=" + str(subject) + "'"
-
-                    FM_cmd = (
-                        'python3 ' + mapper_script +
-                        ' -s ' +
-                        ' -a symlink ' +
-                        ' -sp ' + source_dir +
-                        ' -dp ' + child_dir +
-                        ' -t ' + template +
-                        ' ' + os.path.join(dest_dir, filename)
-                        )
-
-                    subprocess.call(FM_cmd, shell=True)
-
-                    # if FM_cmd failed
-                    if not os.path.isdir(child_dir):
-                        # go to the next iteration of this loop and skip below lines
-                        continue
-
-                    child_check = False
+                # Delete if content not found
+                if child_check == False:  
                     for child_content in os.listdir(child_dir):
                         content_path = os.path.join(child_dir, child_content)
-                        if os.path.isdir(content_path):
-                            child_check = True
-                            break
-
-                    # Delete if content not found
-                    if child_check == False:  
-                        for child_content in os.listdir(child_dir):
-                            content_path = os.path.join(child_dir, child_content)
-                            os.remove(content_path)
-                        os.rmdir(child_dir)
+                        os.remove(content_path)
+                    os.rmdir(child_dir)
 
     print('DATA PREPARED.  ATTEMPTING RECORDS PREPARATION.')
 
-    for filename in os.listdir(dest_dir):
-        if filename.endswith('.json'):
+    for datatype in datatypes:
 
-            # creating the parent and child directory for the files to get mapped to
-            parent_name = filename.rstrip('.json')
-            parent_dir = os.path.join(dest_dir, parent_name)
+        parent_dir = os.path.join(wd, datatype)
 
-            RP_cmd = (
-                'python3 ' + os.path.join(HERE, 'records.py') +
-                ' -p ' + parent_dir
-                )
+        RP_cmd = (
+            'python3 ' + os.path.join(HERE, 'records.py') +
+            ' -p ' + parent_dir +
+            ' -l ' + lookup_csv +
+            ' -y ' + os.path.join(dest_dir, 'prepared_yamls')
+            )
 
-            subprocess.call(RP_cmd, shell=True)
+        subprocess.call(RP_cmd, shell=True)
 
 
 if __name__ == "__main__":
     print('Starting input check')
-    dest_dir, mapper_script, manifest_script, source_dir, skip = input_check()
+    dest_dir, wd, subject_list, datatypes, mapper_script, manifest_script, source_dir, skip = input_check()
 
     print('Starting file-mapping and records preparation')
-    filemap_and_recordsprep(dest_dir, mapper_script, source_dir, skip)
+    filemap_and_recordsprep(dest_dir, wd, subject_list, datatypes, mapper_script, source_dir, skip)
 
-    print("Complete! Please review data prepared at: " + dest_dir)
+    print("Complete! Please review data prepared at: " + wd)
 
     sys.exit(0)
