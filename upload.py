@@ -30,24 +30,31 @@ def generate_parser():
     )    
     parser.add_argument(
         '-c', '--collection', dest='collection_id', metavar='COLLECTION_ID', type=int, required=True,
-        help=('The collection ID that files are being uploaded to.')
+        help=('The collection flag needs an NDA Collection ID. You can find '
+              ' collection IDs in the nda.nih.gov. For instance, the ABCC is 3165, '
+              ' ASD-BIDS is 1955, ADHD-BIDS years 1-8 is 2857, and ADHD-BIDS years '
+              ' 9-12 is 3222.')
     )
     parser.add_argument(
         '-s', '--source', '-p', '--parent', dest='source', metavar='SOURCE_DIR', type=str, required=True,
-        help=('Path to the folder that were prepared for upload. '
-              'Folder should be of the format: ".../ndastructure_type.class.subset" '
-              'containing folders called "sub-subject_ses-session.type.class.subset" '
-              'where "ndastructure" is fmriresults01 or imagingcollection01, '
-              '"subject" is the BIDS subject ID/participant label, '
-              '"session" is the BIDS session ID, "type" is either "inputs" or '
-              '"derivatives", "class" is "anat", "dwi", "fmap", "func", or something '
-              'similar, and "subset" is the user-defined "data subset type".'
+        help=('Path to the folder that were prepared for upload (the same path as '
+              'the --source specified for prepare.py). '
+              ' Folder should be of the format: ".../ndastructure_type.class.subset" '
+              ' containing folders called "sub-subject_ses-session.type.class.subset" '
+              ' where "ndastructure" is fmriresults01 or imagingcollection01, '
+              ' "subject" is the BIDS subject ID/participant label, '
+              ' "session" is the BIDS session ID, "type" is either "inputs" or '
+              ' "derivatives", "class" is "anat", "dwi", "fmap", "func", or something '
+              ' similar, and "subset" is the user-defined "data subset type".'
               'For example: '
-              '.../imagingcollection01_inputs.anat.T1w/sub-NDARABC123_ses-baseline.inputs.anat.T1w')
+              ' .../imagingcollection01_inputs.anat.T1w/sub-NDARABC123_ses-baseline.inputs.anat.T1w')
     )
     parser.add_argument(
         '-vt', '--ndavtcmd', dest='vtcmd', metavar='VTCMD', type=str, required=True,
-        help=('Path to the vtcmd located in the virtual environment being used for the upload.')
+        help=('Absolute path to the vtcmd located in the virtual environment being used for the upload. '
+              ' If it is in your local Python installation binaries folder: '
+              '--ndavtcmd=~/.local/bin/vtcmd '
+              'For installation instructions see https://github.com/NDAR/nda-tools')
     )
     return parser
 
@@ -128,8 +135,9 @@ def nda_vt():
     count = int(math.ceil(float(total) / max_batch_size ))
     upload_record = source + '.uploaded_' + data_subset + '.upload'
 
-    with open(upload_record, 'a+') as upload_file:
-        file_list = [line.rstrip() for line in upload_file]
+    with open(upload_record, 'r+') as upload_file:
+        file_list = [line.rstrip() for line in upload_file.readlines()]
+        print(file_list)
 
         for i in range(1, count+1):
             batchname = '_'.join([ str(total), str(max_batch_size), str(i) ])
@@ -139,7 +147,7 @@ def nda_vt():
             folders_batch = source + '.folders_' + batchname + '.txt'
 
             if records_batch in file_list:
-                print("WARNING: " + records_batch + " appears in " + upload_file + " so may already have been uploaded to the NDA.")
+                print("WARNING: " + records_batch + " appears in " + upload_record + " so may already have been uploaded to the NDA.")
                 continue
 
             subprocess.call(('echo `date` Uploading: ' + description), shell=True)
@@ -152,8 +160,9 @@ def nda_vt():
                   ' -b')
 
             subprocess.call(('echo ' + cmd), shell=True)
-            subprocess.call(cmd, shell = True)
-            upload_file.write( records_batch + '\n')
+            subprocess.call(cmd, shell = True) # TODO Check for success, need to check stdout
+            upload_file.write(records_batch + '\n')
+
     
     upload_file.close()
 
