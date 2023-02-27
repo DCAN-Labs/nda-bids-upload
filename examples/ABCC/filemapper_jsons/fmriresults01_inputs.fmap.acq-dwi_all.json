@@ -1,0 +1,13 @@
+{
+    "CHANGES": "CHANGES",
+    "README": "README",
+    "dataset_description.json": "dataset_description.json",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-dwi_dir-AP_epi.json": "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-dwi_dir-AP_epi.json",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-dwi_dir-AP_epi.nii.gz": "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-dwi_dir-AP_epi.nii.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-dwi_dir-AP_epi.bvec": "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-dwi_dir-AP_epi.bvec",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-dwi_dir-AP_epi.bval": "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-dwi_dir-AP_epi.bval",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-dwi_dir-PA_epi.json": "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-dwi_dir-PA_epi.json",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-dwi_dir-PA_epi.nii.gz": "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-dwi_dir-PA_epi.nii.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-dwi_dir-PA_epi.bvec": "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-dwi_dir-PA_epi.bvec",
+    "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-dwi_dir-PA_epi.bval": "sub-{SUBJECT}/ses-{SESSION}/fmap/sub-{SUBJECT}_ses-{SESSION}_acq-dwi_dir-PA_epi.bval"
+}

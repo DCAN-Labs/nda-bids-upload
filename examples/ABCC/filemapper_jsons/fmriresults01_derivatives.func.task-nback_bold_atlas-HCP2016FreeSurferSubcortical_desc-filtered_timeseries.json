@@ -1,0 +1,8 @@
+{
+    "CHANGES": "CHANGES",
+    "README": "README",
+    "dataset_description.json": "dataset_description.json",
+    "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-nback_bold_atlas-HCP2016FreeSurferSubcortical_desc-filtered_timeseries.ptseries.nii": "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-nback_bold_atlas-HCP2016FreeSurferSubcortical_desc-filtered_timeseries.ptseries.nii",
+    "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-nback_desc-filtered_motion_mask.mat": "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-nback_desc-filtered_motion_mask.mat",
+    "derivatives/abcd-hcp-pipeline/HCP2016FreeSurferSubcortical_dparc.dlabel.nii": "derivatives/abcd-hcp-pipeline/HCP2016FreeSurferSubcortical_dparc.dlabel.nii"
+}

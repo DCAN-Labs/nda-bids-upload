@@ -1,0 +1,6 @@
+{
+    "CHANGES": "CHANGES",
+    "README": "README",
+    "dataset_description.json": "dataset_description.json",
+    "derivatives/qsiprep/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_desc-SliceQC_dwi.json": "derivatives/qsiprep/sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_desc-SliceQC_dwi.json"
+}
