@@ -1,0 +1,3 @@
+{
+  "gordon_sets/data/ABCD_157_missing_5min_FD0p2/sub-{SUBJECT}_ses-{SESSION}_task-rest_desc-filtered_motion_mask.mat_0.2_cifti_censor_FD_vector_5_minutes_of_data_at_0.2_threshold.txt": "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-rest_bold_atlas-Gordon2014FreeSurferSubcortical_desc-filtered_timeseries_thresh-fd0p2mm_censor-5min_conndata-network_censor.txt"
+}

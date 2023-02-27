@@ -1,0 +1,6 @@
+{
+    "CHANGES": "CHANGES",
+    "README": "README",
+    "dataset_description.json": "dataset_description.json",
+    "derivatives/qsiprep/sub-{SUBJECT}/anat/sub-{SUBJECT}_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5": "derivatives/qsiprep/sub-{SUBJECT}/anat/sub-{SUBJECT}_from-T1w_to-MNI152NLin2009cAsym_mode-image_xfm.h5"
+}

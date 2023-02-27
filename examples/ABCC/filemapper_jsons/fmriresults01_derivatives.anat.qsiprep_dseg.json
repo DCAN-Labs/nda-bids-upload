@@ -1,0 +1,6 @@
+{
+    "CHANGES": "CHANGES",
+    "README": "README",
+    "dataset_description.json": "dataset_description.json",
+    "derivatives/qsiprep/sub-{SUBJECT}/anat/sub-{SUBJECT}_dseg.nii.gz": "derivatives/qsiprep/sub-{SUBJECT}/anat/sub-{SUBJECT}_dseg.nii.gz"
+}

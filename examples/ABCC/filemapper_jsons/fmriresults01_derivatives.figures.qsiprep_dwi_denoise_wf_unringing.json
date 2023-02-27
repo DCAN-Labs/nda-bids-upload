@@ -1,0 +1,10 @@
+{
+    "CHANGES": "CHANGES",
+    "README": "README",
+    "dataset_description.json": "dataset_description.json",
+    "derivatives/qsiprep/sub-{SUBJECT}/figures/sub-{SUBJECT}_ses-{SESSION}_dwi_denoise_ses_{SESSION}_dwi_wf_unringing.svg": "derivatives/qsiprep/sub-{SUBJECT}/figures/sub-{SUBJECT}_ses-{SESSION}_dwi_denoise_ses_{SESSION}_dwi_wf_unringing.svg",
+    "derivatives/qsiprep/sub-{SUBJECT}/figures/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi_denoise_ses_{SESSION}_run_01_dwi_wf_unringing.svg": "derivatives/qsiprep/sub-{SUBJECT}/figures/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi_denoise_ses_{SESSION}_run_01_dwi_wf_unringing.svg",
+    "derivatives/qsiprep/sub-{SUBJECT}/figures/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi_denoise_ses_{SESSION}_run_02_dwi_wf_unringing.svg": "derivatives/qsiprep/sub-{SUBJECT}/figures/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi_denoise_ses_{SESSION}_run_02_dwi_wf_unringing.svg",
+    "derivatives/qsiprep/sub-{SUBJECT}/figures/sub-{SUBJECT}_ses-{SESSION}_run-03_dwi_denoise_ses_{SESSION}_run_03_dwi_wf_unringing.svg": "derivatives/qsiprep/sub-{SUBJECT}/figures/sub-{SUBJECT}_ses-{SESSION}_run-03_dwi_denoise_ses_{SESSION}_run_03_dwi_wf_unringing.svg",
+    "derivatives/qsiprep/sub-{SUBJECT}/figures/sub-{SUBJECT}_ses-{SESSION}_run-04_dwi_denoise_ses_{SESSION}_run_04_dwi_wf_unringing.svg": "derivatives/qsiprep/sub-{SUBJECT}/figures/sub-{SUBJECT}_ses-{SESSION}_run-04_dwi_denoise_ses_{SESSION}_run_04_dwi_wf_unringing.svg"
+}

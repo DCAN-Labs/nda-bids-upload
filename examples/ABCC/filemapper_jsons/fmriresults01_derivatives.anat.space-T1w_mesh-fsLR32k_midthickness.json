@@ -1,0 +1,7 @@
+{
+    "CHANGES": "CHANGES",
+    "README": "README",
+    "dataset_description.json": "dataset_description.json",
+    "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/anat/sub-{SUBJECT}_ses-{SESSION}_hemi-L_space-T1w_mesh-fsLR32k_midthickness.surf.gii": "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/anat/sub-{SUBJECT}_ses-{SESSION}_hemi-L_space-T1w_mesh-fsLR32k_midthickness.surf.gii",
+    "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/anat/sub-{SUBJECT}_ses-{SESSION}_hemi-R_space-T1w_mesh-fsLR32k_midthickness.surf.gii": "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/anat/sub-{SUBJECT}_ses-{SESSION}_hemi-R_space-T1w_mesh-fsLR32k_midthickness.surf.gii"
+}

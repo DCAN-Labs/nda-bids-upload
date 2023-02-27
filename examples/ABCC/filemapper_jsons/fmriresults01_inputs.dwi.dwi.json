@@ -1,0 +1,17 @@
+{
+    "CHANGES": "CHANGES",
+    "README": "README",
+    "dataset_description.json": "dataset_description.json",
+    "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.json": "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.json",
+    "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.nii.gz": "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.nii.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.bvec": "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.bvec",
+    "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.bvec": "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_dwi.bval",
+    "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.json": "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.json",
+    "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.nii.gz": "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.nii.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.bvec": "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.bvec",
+    "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.bvec": "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-01_dwi.bval",
+    "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.json": "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.json",
+    "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.nii.gz": "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.nii.gz",
+    "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.bvec": "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.bvec",
+    "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.bvec": "sub-{SUBJECT}/ses-{SESSION}/dwi/sub-{SUBJECT}_ses-{SESSION}_run-02_dwi.bval"
+}

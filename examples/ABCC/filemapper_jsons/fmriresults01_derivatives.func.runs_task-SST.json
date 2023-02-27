@@ -1,0 +1,9 @@
+{
+    "CHANGES": "CHANGES",
+    "README": "README",
+    "dataset_description.json": "dataset_description.json",
+    "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-SST_run-1_bold_timeseries.dtseries.nii": "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-SST_run-1_bold_timeseries.dtseries.nii",
+    "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-SST_run-1_space-MNI_bold.nii.gz": "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-SST_run-1_space-MNI_bold.nii.gz",
+    "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-SST_run-2_bold_timeseries.dtseries.nii": "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-SST_run-2_bold_timeseries.dtseries.nii",
+    "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-SST_run-2_space-MNI_bold.nii.gz": "derivatives/abcd-hcp-pipeline/sub-{SUBJECT}/ses-{SESSION}/func/sub-{SUBJECT}_ses-{SESSION}_task-SST_run-2_space-MNI_bold.nii.gz"
+}
