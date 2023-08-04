@@ -1,5 +1,5 @@
 blank_issues_enabled: true
 contact_links:
-  - name: Questions
-    url: https://github.com/DCAN-Labs/nda-bids-upload
-    about: Please ask and answer questions related to the uploader usage here.
+  - name: Documentation
+    url: https://ndabids.readthedocs.io/en/latest/
+    about: Read about the uploader usage here.
