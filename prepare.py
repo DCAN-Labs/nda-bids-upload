@@ -12,6 +12,7 @@ import stat
 import subprocess
 import sys
 import pandas as pd
+import shutil
 
 HERE = os.path.dirname(os.path.realpath(__file__))
 
@@ -64,7 +65,6 @@ def generate_parser():
     )
 
     return parser
-
 
 def input_check():
 
@@ -228,18 +228,23 @@ def filemap_and_recordsprep(dest_dir, wd, subject_list, datatypes, mapper_script
     print('DATA PREPARED.  ATTEMPTING RECORDS PREPARATION.')
 
     for datatype in datatypes:
-
         parent_dir = os.path.join(wd, datatype)
+        len_pd=os.listdir(parent_dir)
+        
+        if len(os.listdir(parent_dir)) == 0:
+            print('{} EMPTY - DELETING.'.format(parent_dir))
+            #os.rmdir(parent_dir)
+            shutil.rmtree(parent_dir)
+        
+        else:
+            RP_cmd = (
+                'python3 ' + os.path.join(HERE, 'records.py') +
+                ' -p ' + parent_dir +
+                ' -l ' + lookup_csv +
+                ' -y ' + os.path.join(dest_dir, 'prepared_yamls')
+                )
 
-        RP_cmd = (
-            'python3 ' + os.path.join(HERE, 'records.py') +
-            ' -p ' + parent_dir +
-            ' -l ' + lookup_csv +
-            ' -y ' + os.path.join(dest_dir, 'prepared_yamls')
-            )
-
-        subprocess.call(RP_cmd, shell=True)
-
+            subprocess.call(RP_cmd, shell=True)
 
 if __name__ == "__main__":
     print('Starting input check')
