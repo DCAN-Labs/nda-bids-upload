@@ -2,8 +2,7 @@ import csv
 import pandas as pd
 import argparse
 
-#This script was written to generate a lookup.csv file from this spreadsheet: 
-#/home/rando149/shared/data/Collection_3165_Supporting_Documentation/abcd_mri01_20230407/abcd_mri01.txt
+# Note: this script is not generalized and was written to generate a lookup.csv from a specific txt file
 
 parser = argparse.ArgumentParser()
 parser.add_argument("ref_txt_file")
