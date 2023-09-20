@@ -1,4 +1,4 @@
-# 7. Appendix
+# Additional Information
 
 ## Links for more information
 

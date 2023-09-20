@@ -1,4 +1,4 @@
-## Create Your Uploads Working Directory
+# Create Your Uploads Working Directory
 
 1.  Create a working directory for your submissions.
 
