@@ -34,9 +34,9 @@ Overview
 
 3. Prepare the Lookup CSV
 
-4. Create YAML and JSON files
+4. Create YAML and JSON Files
 
-5. Run Prepare and Upload Scripts
+5. Run and Validate Prepare and Upload Scripts
 
 6. Contact the NDA for Quality Assessment
 
