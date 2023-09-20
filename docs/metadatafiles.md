@@ -135,23 +135,23 @@ For further guidance on the values of each element use the
 
 *Content YAML Example*
 
-        inputs: "Updated data for the ABCC (ABCD-3165) August 2023 Release"
-        file_source: "NDA Collection 3165: DCAN Labs ABCD-BIDS"
-        job_name: "abcd-hcp-pipeline"
-        proc_types: "Linux Docker processing on a slurm cluster"
-        pipeline: "dcanlabs/abcd-hcp-pipeline:v0.1.3"
-        pipeline_script: "https://hub.docker.com/r/dcanlabs/abcd-hcp-pipeline"
-        pipeline_tools: "abcd-hcp-pipeline v0.1.3, ANTs v2.2.0, Convert3D v1.0.0, FreeSu
-        rfer v5.3.0-HCP, FSL v5.0.10, MSM v2.00, Workbench v1.3.2, DCAN-Labs/DCAN-HCP, D
-        CAN-Labs/dcan_bold_processing, DCAN-Labs/CustomClean, and DCAN-Labs/ExecutiveSum
-        mary"
-        pipeline_type: "Dockerized BIDS App for MRI session rocessing"
-        pipeline_version: "v0.1.3"
-        qc_fail_quest_reason: "Rated questionable because it has not been explicitly ver
-        ified yet"
-        qc_outcome: "questionable"
-        scan_type: "MR structural"
-        image_history: "See https://github.com/ABCD-STUDY/abcd-hcp-pipeline"
+    inputs: "Updated data for the ABCC (ABCD-3165) August 2023 Release"
+    file_source: "NDA Collection 3165: DCAN Labs ABCD-BIDS"
+    job_name: "abcd-hcp-pipeline"
+    proc_types: "Linux Docker processing on a slurm cluster"
+    pipeline: "dcanlabs/abcd-hcp-pipeline:v0.1.3"
+    pipeline_script: "https://hub.docker.com/r/dcanlabs/abcd-hcp-pipeline"
+    pipeline_tools: "abcd-hcp-pipeline v0.1.3, ANTs v2.2.0, Convert3D v1.0.0, FreeSu
+    rfer v5.3.0-HCP, FSL v5.0.10, MSM v2.00, Workbench v1.3.2, DCAN-Labs/DCAN-HCP, D
+    CAN-Labs/dcan_bold_processing, DCAN-Labs/CustomClean, and DCAN-Labs/ExecutiveSum
+    mary"
+    pipeline_type: "Dockerized BIDS App for MRI session rocessing"
+    pipeline_version: "v0.1.3"
+    qc_fail_quest_reason: "Rated questionable because it has not been explicitly ver
+    ified yet"
+    qc_outcome: "questionable"
+    scan_type: "MR structural"
+    image_history: "See https://github.com/ABCD-STUDY/abcd-hcp-pipeline"
 
 **Note:** Regarding the NDA required fields for fmriresults01: 
 **`manifest`**, **`image_description`**, **`derived_files`**,
