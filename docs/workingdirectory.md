@@ -4,9 +4,9 @@
 
 2.  Within that working directory include the following:
 
-    a.  A datatypes.txt file including a list of all of the NDA datatypes you plan to upload
+    a.  A `datatypes.txt` file including a list of all of the NDA datatypes you plan to upload
 
-    b.  A subject_list.csv file containing a list of the subjects and their sessions you plan to upload with the column headers bids_subject_id and bids_session_id, respectively.
+    b.  A `subject_list.csv` file containing a list of the subjects and their sessions you plan to upload with the column headers bids_subject_id and bids_session_id, respectively.
 
     c.  Scripts set up to run prepare.py and uploads.py on your system. Examples of what our team uses on MSI exist under the `utilities` directory inside [this repository](https://github.com/DCAN-Labs/nda-bids-upload).
 
