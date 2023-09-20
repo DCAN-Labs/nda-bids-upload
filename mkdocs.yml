@@ -10,5 +10,6 @@ nav:
   - 3. Prepare the lookup CSV: lookup.md
   - 4. Create YAML and JSON files: metadatafiles.md
   - 5. Run prepare and upload scripts: scripts.md
-  - 6. Advice for Working with the NDA: nda.md
-  - 7. Additional Information: additionalinformation.md
+  - 6. Contact the NDA for Quality Assessment: qa.md
+  - 7. Advice for Working with the NDA: nda.md
+  - 8. Additional Information: additionalinformation.md
