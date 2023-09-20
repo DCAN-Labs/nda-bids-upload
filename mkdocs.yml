@@ -7,9 +7,9 @@ nav:
   - Overview: index.md
   - 1. Install Dependencies: dependencies.md
   - 2. Create Your Uploads Working Directory: workingdirectory.md
-  - 3. Prepare the lookup CSV: lookup.md
-  - 4. Create YAML and JSON files: metadatafiles.md
-  - 5. Run prepare and upload scripts: scripts.md
+  - 3. Prepare the Lookup CSV: lookup.md
+  - 4. Create YAML and JSON Files: metadatafiles.md
+  - 5. Run and Validate Prepare and Upload Scripts: scripts.md
   - 6. Contact the NDA for Quality Assessment: qa.md
   - 7. Advice for Working with the NDA: nda.md
   - 8. Additional Information: additionalinformation.md
