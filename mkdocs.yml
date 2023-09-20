@@ -4,11 +4,11 @@ plugins:
   - search
 docs_dir: docs
 nav:
-  - Table of contents: index.md
-  - 1. Dependencies: dependencies.md
-  - 2. Preparing the lookup CSV: lookup.md
-  - 3. Naming conventions of Content YAML and file-mapper JSON files: conventions.md
-  - 4. Content YAML files: yamls.md
-  - 5. file-mapper JSON files: jsons.md
-  - 6. Using prepare and upload scripts: scripts.md
-  - 7. Appendix: appendix.md
+  - Overview: index.md
+  - 1. Install Dependencies: dependencies.md
+  - 2. Create Your Uploads Working Directory: workingdirectory.md
+  - 3. Prepare the lookup CSV: lookup.md
+  - 4. Create YAML and JSON files: metadatafiles.md
+  - 5. Run prepare and upload scripts: scripts.md
+  - 6. Advice for Working with the NDA: nda.md
+  - 7. Additional Information: additionalinformation.md
