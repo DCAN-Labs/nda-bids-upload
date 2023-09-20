@@ -8,7 +8,7 @@
 
     b.  A subject_list.csv file containing a list of the subjects and their sessions you plan to upload with the column headers bids_subject_id and bids_session_id, respectively.
 
-    c.  Scripts set up to run prepare.py and uploads.py on your system. Examples of what our team uses on MSI exist under the `slurm-utilities` directory inside [this repository](https://github.com/DCAN-Labs/nda-bids-upload).
+    c.  Scripts set up to run prepare.py and uploads.py on your system. Examples of what our team uses on MSI exist under the `utilities` directory inside [this repository](https://github.com/DCAN-Labs/nda-bids-upload).
 
 3.  Copy or create your YAML and JSON pair files within your working directory under `prepared_yamls` and `prepared_jsons` directories, respectively.
 
