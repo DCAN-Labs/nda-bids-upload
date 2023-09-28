@@ -1,9 +1,18 @@
-# 2. Preparing a lookup.csv file
+# Prepare the Lookup CSV
 
 Create a lookup.csv to be used in prepare.py. The prepare.py script uses
 the lookup.csv file to determine which subjects and sessions will be
-uploaded.  The following documentation subsections cover each column's
-format in detail. 
+uploaded.  
+
+1. Run the `make_lookupcsv.py` with `abcd_mri01.txt` as the input under the `utilities` directory within this repository.
+
+2. Verify that all of the subjects you want are included.
+
+## How to Download the `abcd_mri01.txt` File
+
+ADD HOW TO DOWNLOAD THE FAST TRACK QC HERE
+
+## Contents of the Lookup CSV
 
 The lookup.csv contains metadata about all of the subjects included in
 the collection. The lookup.csv file must exist and reside in the upload
