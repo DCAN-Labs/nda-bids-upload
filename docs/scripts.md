@@ -48,8 +48,19 @@ You can validate that all of the expected subjects are present in each
 of the datatype folders by running the `validate-prepare.py` script with 
 your `subject_list.csv` and your working directory as the inputs. This script
 will loop through each datatype folder and compare the subject list to the 
-subject IDs present in the folder. It will otuput a text file containing the 
+subject IDs present in the folder. It will output a text file containing the 
 subject IDs that are in the subject list but not in the datatype folders.  
+If there are many subjects missing, part of the issue could be that the lookup.csv
+does not contain all of the subjects that it should, so be sure to double check
+that all of the subjects listed in the `subject_list.csv` are also in the `lookup.csv`
+
+This script should also create several types of files. It will create pairs of csv and 
+txt files that separate out the subject files in separate batches of 500 files each, with the
+naming convention {datatype-folder}.records_{num-of-subjects}_500_{batch-number}. For example 
+if there were 1400 subjects, there would be 3 submissions: batch 1 and 2 with 500 subjects each 
+and batch 3 with 400 subjects. The txt/csv for the final batch would be named
+`fmriresults01_derivatives.anat.space-ACPC_dseg.records_1400_500_3.csv/txt`. The companion csv 
+contains the manifest.txt information for the files being uploaded.
 
 You should also validate the directory structure of the datatype folders 
 that were created. In the upload directory, you will find a parent/child directory setup.
@@ -168,15 +179,16 @@ the case.
 **`--ndavtcmd`** (or **`-vt`**): The ndavtcmd flag expects the absolute
 path to the vtcmd script. 
 
-> *Example \--ndavtcmd:*
->
+> *Example \--ndavtcmd:* `~/.local/bin/vtcmd`
+> 
 > *\# if it is in your local Python installation binaries folder*\
-> `~/.local/bin/vtcmd`
+> 
 
-The first time this script is run, you will be prompted for your NIMH
+The first time this script is run, you should be prompted for your NIMH
 username and password, which is then stored in
-**\~/.NDATools/settings.cfg.** Find the upload logs, validation results,
-and submission package here: **\~/NDA/nda-tools/vtcmd**
+`\~/.NDATools/settings.cfg`. However, if only your username is stored in that file, create a `pass.txt` file in your working directory (that only you can read/write) to store just your NDA password.
+
+Find the upload logs, validation results, and submission package here: `\~/NDA/nda-tools/vtcmd`
 
 ## Validate `upload.py`
 
