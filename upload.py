@@ -124,7 +124,7 @@ def nda_vt():
         all_records = f.readlines()
 
     max_batch_size = 500 # @TODO this needs to become an integer input defaulted to 500
-    total = len(all_records) - 2 # minus two because of two header lines in the complete records file
+    total = len(all_records) - 1 # minus two because of two header lines in the complete records file
     count = int(math.ceil(float(total) / max_batch_size ))
     upload_record = source + '.uploaded_' + data_subset + '.upload'
 
