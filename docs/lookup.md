@@ -10,7 +10,23 @@ uploaded. 
 
 ## How to Download the `abcd_mri01.txt` File
 
-ADD HOW TO DOWNLOAD THE FAST TRACK QC HERE
+1. Login to the [NIMH Data Archive](https://nda.nih.gov/)
+
+2. Navigate to [this page](https://nda.nih.gov/data_structure.html?short_name=abcd_mri01)
+
+3. Click *Add to Filter Cart* at the bottom
+
+4. Once the filter cart in the top right corner updates, click on *Create Data Package/Add Data to Study*
+
+5. Click *Create Data Package* and name it something identifiable to you
+
+6. Make sure *Include Documentation* is selected before clicking *Create Data Package*. It will take a while to create
+
+7. Once the package is created, download it to your system using the [downloadcmd within nda-tools](https://github.com/NDAR/nda-tools) by running:
+
+        downloadcmd -dp data_package_id -d /download/output/directory 
+
+**NOTE:** You will need to have nda-tools downloaded either to your system directly or in a conda environment that needs to be active to run this command
 
 ## Contents of the Lookup CSV
 

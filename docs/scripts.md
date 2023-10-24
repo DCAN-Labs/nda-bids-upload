@@ -192,7 +192,7 @@ Find the upload logs, validation results, and submission package here: `\~/NDA/n
 
 ## Validate `upload.py`
 
-After running `upload.py`, check that the submission was successful. First check the output logs for any errors. Then, follow the steps below to check the submission on the NDA:
+After running `upload.py`, check that the submission was successful. As the upload is running, you should receive emails from the NDA confirming your submission for each batch. First check the output logs for any errors. Then, follow the steps below to check the submission on the NDA:
 
 1. Log into the NDA
 
