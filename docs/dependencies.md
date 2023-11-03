@@ -7,9 +7,7 @@ or a conda environment
 
 -   Python 3.6 
 
--   Python [YAML dictionary](https://pypi.org/project/PyYAML/) package 
-
--   Install [NDA tools](https://github.com/NDAR/nda-tools) 
+-   All of the packages from the `requirements.txt` under the [utilities folder](https://github.com/DCAN-Labs/nda-bids-upload/tree/main/utilities) 
 
 -   Clone the [file-mapper GitHub repository](https://github.com/DCAN-Labs/file-mapper) and ensure that file-mapper-script.py is executable
 
