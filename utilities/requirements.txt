@@ -1,0 +1,11 @@
+cffi==1.15.1
+cryptography==41.0.3
+nda-tools==0.2.25
+numpy==1.26.0
+pandas==2.1.1
+pycparser==2.21
+python-dateutil==2.8.2
+pytz==2023.3.post1
+PyYAML==6.0.1
+six==1.16.0
+sqlite==3.41.2
