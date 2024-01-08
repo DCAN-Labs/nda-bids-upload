@@ -44,15 +44,19 @@ to upload.
 
 Once this script has been run you will want to spot check the results.
 
-You can validate that all of the expected subjects are present in each
+You can validate that all of the expected subjects are present in at least one 
 of the datatype folders by running the `validate-prepare.py` script with 
-your `subject_list.csv` and your working directory as the inputs. This script
-will loop through each datatype folder and compare the subject list to the 
-subject IDs present in the folder. It will output a text file containing the 
-subject IDs that are in the subject list but not in the datatype folders.  
+your `subject_list.csv` and your working directory as the inputs. You can also 
+specify an output file. This script will loop through each datatype folder and 
+build a list of subject IDs that have a datatype folder. Then it will compare 
+that list to the subject list. It will output a text file containing the 
+subject IDs that are in the subject list but not in any of the datatype folders.  
 If there are many subjects missing, part of the issue could be that the lookup.csv
 does not contain all of the subjects that it should, so be sure to double check
 that all of the subjects listed in the `subject_list.csv` are also in the `lookup.csv`
+and that there aren't any duplicate subject,session pairs. The output log of the `prepare.py`
+run should have warnings for any subjects that weren't found in the lookup.csv, which means
+that they are either completely missing or that there are duplicates. 
 
 This script should also create several types of files. It will create pairs of csv and 
 txt files that separate out the subject files in separate batches of 500 files each, with the
