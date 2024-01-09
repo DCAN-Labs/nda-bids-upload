@@ -4,19 +4,33 @@ Create a lookup.csv to be used in prepare.py. The prepare.py script uses
 the lookup.csv file to determine which subjects and sessions will be
 uploaded.  
 
-1. Run the `make_lookupcsv.py` with `abcd_mri01.txt` as the input under the `utilities` directory within this repository.
+1. Run the `make_lookupcsv.py` under the `utilities` directory within this repository.
 
-2. Verify that all of the subjects you want are included.
+   * The `--info_file` can either be the `abcd_mri01.txt` or the `abcd_fastqc01.txt` file. Specify which file you're using with the `--abcdmri` or `--fasttrack` flag. 
 
-## How to Download the `abcd_mri01.txt` File
+   * While either file can be used, the fastqc file typically will have more subjects than the mri file. 
+
+   * You will also need to provide the path to where you want your lookup.csv with the `--lookup_csv` flag.
+
+2. Verify that all of the subjects you want are included by running `validate-lookupcsv.py` also under the `utilities` directory.
+   
+   * This script will make sure that all of the subjects in your subject list are present in the lookup.csv.
+
+   * This script will also remove any lines with a duplicate subject,session pair that have a different interview date by choosing whichever line has the earliest date.
+
+   * Please note that this will not fix the issue of the same subject,session pair having different age/sex markers (an issue found in the fastqc file). That will have to be fixed manually by comparing the lookup.csv to the abcd_mri file.  
+
+## How to Download the Information File
 
 1. Login to the [NIMH Data Archive](https://nda.nih.gov/)
 
-2. Navigate to [this page](https://nda.nih.gov/data_structure.html?short_name=abcd_mri01)
+2. For the `abcd_mri01.txt` file, navigate to [this page](https://nda.nih.gov/data_structure.html?short_name=abcd_mri01). Navigate to [this page](https://nda.nih.gov/data_structure.html?short_name=abcd_fastqc01) for the `abcd_fastqc.txt` file.
 
 3. Click *Add to Filter Cart* at the bottom
 
 4. Once the filter cart in the top right corner updates, click on *Create Data Package/Add Data to Study*
+
+    * For the fastqc file, double check that the ABCD Dataset and ABCD Fasttrack QC Instrument checkboxes are selected (they should be by default)
 
 5. Click *Create Data Package* and name it something identifiable to you
 

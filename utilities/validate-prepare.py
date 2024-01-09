@@ -24,7 +24,7 @@ def _cli():
         help='Path to subject_list.csv containing the subjects you wish to upload'
     )
     parser.add_argument(
-        '--output_file', required=False, default = "prepare_validation.txt" 
+        '--output_file', required=False, default = "prepare_validation.txt",
         help='Path to where you want the text file with the missing subjects to be output (including the name of the file). Default is cwd/prepare_validation.txt.'
     )
     
