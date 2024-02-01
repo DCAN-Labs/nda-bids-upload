@@ -1,5 +1,6 @@
 import pandas as pd
 import argparse
+import os
 
 """
 Author: rae McCollum
@@ -15,18 +16,17 @@ def _cli():
     """
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        '-in', '--md5', dest = "md5_values",
-        default="/home/rando149/shared/projects/ABCC_datalad/uploaded_subjects/md5_values.txt",
+        '-in', '--md5', dest = "md5_values", required=True,
         help=('Valid path to existing readable md5_values.txt file in '
               'tab-separated format (like a .tsv)')
     )
     parser.add_argument(
         '-out', '--output', '--output-file', dest = "output",
-        default="/home/rando149/shared/projects/rae_testing/bad_QC_filtering/resubmit_bad_QC/uploaded_files.txt",
-        help='Path to a .txt file to save the list of uploaded files and their submission ID into'
+        default=os.path.join(os.getcwd(), "uploaded_nda_files.txt"),
+        help='Path to a .txt file to save the list of uploaded files and their submission ID into. Default is cwd/uploaded_nda_files.txt'
     )
     parser.add_argument(
-        '-sub', '--subject_list', dest = "sub_file", default="/home/rando149/shared/projects/rae_testing/bad_QC_filtering/resubmit_bad_QC/bad_nda_subs.txt",
+        '-sub', '--subject_list', dest = "sub_file", required=True,
         help=("Path to a file with subject IDs to check which of their files were uploaded. "
         "Format needs to be subject,session WITH the 'sub-' and 'ses-' prefixes and no headers.")
     )
