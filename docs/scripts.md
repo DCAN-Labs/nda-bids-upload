@@ -207,3 +207,33 @@ After running `upload.py`, check that the submission was successful. As the uplo
 4. Click on the collection name you uploaded to.
 
 5. Click on the "Submissions" tab and check the "Submission Loading Status"
+
+To validate which files have been uploaded, you can use the validate-uploaded-files.py script under the [utilites directory](https://github.com/DCAN-Labs/nda-bids-upload/tree/main/utilities). This will output a file that has the file name, submission ID, subject, and session information for each subject in a given list.
+
+There are three flags:
+```
+REQUIRED
+--md5 (-in): Valid path to the md5_values.txt file, which should be in a tab-separated format
+--subject_list (-sub): Valid path to a subject list with the format subject,session WITH the 'sub-' and 'ses-' prefixes and no headers.
+OPTIONAL
+--output (-out, --output_file): Path to a .txt file to save output information into. Default is cwd/uploaded_nda_files.txt
+```
+Example command: 
+`python3 validate-uploaded-files.py -in /path/to/md5_values.txt -out /path/to/output_file.txt -sub /path/to/subject_list.txt`
+
+### How to Download the `md5_values.txt`
+
+To create a package with the metadata files, including the `md5_values.txt`, follow these steps: 
+
+- Ensure you have 'Admin' permissions on your NDA Collection.
+- Visit your NDA Collection and navigate to the 'Submissions' tab.
+- Select the submission(s) you wish to review and download. **
+- Click "Add to Filter Cart" located in the bottom left corner of the page.
+- Wait for your Filter Cart to finish updating.
+- Click “Create Data Package/Add Data to Study”.
+- Create your data package will the default selected settings (include associated data should not be selected)
+- Download your package with this command (will need to have nda-tools installed): `download cmd -dp <package_id> -d <output/dir/>`
+
+** If you would like to download the metadata for the entire collection, on the collection page you can add the entire collection to your filter cart.
+
+This should download several files containing the metadata associated with the selected submissions, including the `md5_values.txt`. 
