@@ -135,7 +135,7 @@ def nda_vt():
     count = int(math.ceil(float(total) / max_batch_size ))
     upload_record = source + '.uploaded_' + data_subset + '.upload'
 
-    with open(upload_record, 'r+') as upload_file:
+    with open(upload_record, 'a+') as upload_file:
         file_list = [line.rstrip() for line in upload_file.readlines()]
         print(file_list)
 
