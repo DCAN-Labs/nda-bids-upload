@@ -4,17 +4,22 @@ import re
 import json
 import sys
 import yaml
+import argparse
 from pathlib import Path
 
 
 class BIDStoNDAConfigGenerator:
     def __init__(self):
-        self.path = sys.argv[1]
-        self.layout = BIDSLayout(self.path, derivatives=True)
+        # fetch the 
+        parser = argparse.ArgumentParser(description='Process a dataset path.')
+        parser.add_argument('dataset_path', type=str, help='The path to the dataset directory')
+        args = parser.parse_args()
+        self.path = args.dataset_path
+
+        self.layout = BIDSLayout(self.path, derivatives=False)
         self.A = 'image03'
         self.pattern = r'^(?P<A>[^_]+)_(?P<X>[^.]+)\.(?P<Y>[^.]+)\.(?P<Z>[^.]+)\..+$'
-        # self.top_level_files = ['CHANGES',
-        #                         'README', 'dataset_description.json']
+
         self.scan_type = {
             'anat': {
                 'mprage': 'MR structural (MPRAGE)',
@@ -56,15 +61,13 @@ class BIDStoNDAConfigGenerator:
             return None
 
     def prepare_json_contents(self, file_name):
-        # json_contents = {file: file for file in self.top_level_files}
         json_contents = {}
         _, X, Y, _ = self.extract_file_name_components(file_name)
         files = self.layout.get(
             scope=X if X != 'inputs' else 'raw', datatype=Y, return_type='file')
         for file_path in files:
             sub_index = file_path.find('derivatives')
-            if sub_index == -1:
-                sub_index = file_path.find('sub-')
+            
             if sub_index != -1:
                 sub_path = file_path[sub_index:]
                 entities = self.layout.parse_file_entities(sub_path)
@@ -74,8 +77,10 @@ class BIDStoNDAConfigGenerator:
                     sub_path = sub_path.replace(subject, '{SUBJECT}')
                 if session:
                     sub_path = sub_path.replace(session, '{SESSION}')
-                sub_path = re.sub(r'-\d', '{#}', sub_path)
+                sub_path = re.sub(r'-\d', '-{#}', sub_path)
                 json_contents[sub_path] = sub_path
+            else:
+                sub_index = file_path.find('sub-')
         finalPath = '/'.join(self.path.split('/')[:-2]) + '/prepared_jsons'
         print(finalPath)
         Path(finalPath).mkdir(parents=True, exist_ok=True)
@@ -99,7 +104,7 @@ class BIDStoNDAConfigGenerator:
 
         yaml_contents = {
             "scan_type": self.fetch_scan_type(Y, Z),
-            "scan_object": 'LIVE',
+            "scan_object": 'Live',
             "image_file_format": 'NIFTI',
             "image_modality": self.image_modality[Y],
             "transformation_performed": 'Yes'
@@ -111,14 +116,11 @@ class BIDStoNDAConfigGenerator:
 
     def fetch_Z_value(self, files):
         Z = set()
-        ignore_list = ['desc', 'subject', 'session',
-                       'extension', 'suffix', 'datatype']
+        ignore_list = ['desc', 'subject', 'session', 'extension', 'suffix', 'datatype']
         for file in files:
             entities = self.layout.parse_file_entities(file)
-            # print(entities)
             filtered_entities = {k: v for k,
                                  v in entities.items() if k not in ignore_list}
-            # print(filtered_entities)
             for key, value in filtered_entities.items():
                 if key != 'space':
                     z = key + '-' + value
