@@ -11,7 +11,7 @@ from pathlib import Path
 class BIDStoNDAConfigGenerator:
     def __init__(self):
         # fetch the 
-        parser = argparse.ArgumentParser(description='Process a dataset path.')
+        parser = argparse.ArgumentParser(description='Prepare JSON and YAML files for a single dataset path.')
         parser.add_argument('dataset_path', type=str, help='The path to the dataset directory')
         args = parser.parse_args()
         self.path = args.dataset_path
