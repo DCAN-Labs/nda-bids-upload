@@ -185,7 +185,11 @@ class BIDStoNDAConfigGenerator:
                     self.prepare_yaml_contents(file)
 
 
-# Example usage:
-# path = '/Users/pbaba1/Downloads/NDA_Dataset/ds004733/'
+# Instructions on how to use:
+# 1. Make sure you are in 'json_yaml_files' folder of the codebase
+# 2. Use the below command to run the script
+#   python3 prepare_files.py /Users/pbaba1/Downloads/NDA_Dataset/ds004733/
+# where '/Users/pbaba1/Downloads/NDA_Dataset/ds004733/' is the path where the BIDS dataset is located
+
 generator = BIDStoNDAConfigGenerator()
 generator.run()
