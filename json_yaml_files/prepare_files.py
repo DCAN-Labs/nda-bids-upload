@@ -183,7 +183,11 @@ class BIDStoNDAConfigGenerator:
                     self.prepare_json_contents(file)
                 for file in file_names['yaml']:
                     self.prepare_yaml_contents(file)
-
+        print()
+        print('Please check the following folders for the json and yaml files generated:')
+        print('JSON files: ' + '/'.join(self.path.split('/')[:-2]) + '/prepared_jsons')
+        print('YAML files: ' + '/'.join(self.path.split('/')[:-2]) + '/prepared_yamls')
+        print()
 
 # Instructions on how to use:
 # 1. Make sure you are in 'json_yaml_files' folder of the codebase
